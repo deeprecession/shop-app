@@ -1,0 +1,96 @@
+.product-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-flow: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-list-element {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  background-color: #ffffff;
+  width: 10rem;
+  height: 15rem;
+
+  padding: 0.5rem;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-list-element__title {
+  font-size: 0.8rem;
+  grid-area: 7 / 1 / 8 / 6;
+  overflow: hidden;
+}
+
+.product-list-element__rating {
+  color: black;
+  font-size: 0.9rem;
+  grid-area: 6 / 4 / 7 / 6;
+}
+
+.product-list-element__title,
+.product-list-element__rating,
+.product-list-element__price {
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-list-element__rating {
+  display: flex;
+  flex-flow: row;
+  align-items: baseline;
+  gap: 0.1rem;
+}
+
+.product-list-element__price {
+  color: red;
+  grid-area: 6 / 1 / 7 / 4;
+}
+
+.product-list-element__image {
+  grid-area: 1 / 1 / 6 / 6;
+
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.product-list-element__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.star-svg {
+  width: 0.8rem;
+  height: 0.8rem;
+
+  object-fit: contain;
+}
+
+.like-button {
+  grid-area: 1 / 5 / 2 / 6;
+  width: 1.2rem;
+  height: 1.2rem;
+
+  justify-self: right;
+  align-self: flex-start;
+
+  object-fit: contain;
+}
+
+.like-button:hover path {
+  transition: fill 0.2s ease;
+  fill: red;
+}
