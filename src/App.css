@@ -1,0 +1,17 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  display: flex;
+  flex-wrap: nowrap;
+
+  justify-content: center;
+  align-items: stretch;
+
+  min-width: 45rem;
+  max-width: 75rem;
+  min-height: 100vh;
+
+  background-color: #f5f5f5;
+}
