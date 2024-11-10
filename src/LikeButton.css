@@ -11,5 +11,5 @@
 
 .like-button:hover path {
 	transition: fill 0.2s ease;
-	fill: red;
+	fill: #e57373;
 }
