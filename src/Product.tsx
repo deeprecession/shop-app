@@ -1,0 +1,41 @@
+import { useLoaderData } from "react-router-dom";
+import { productLoader } from "./router";
+import { LoaderData } from "./LoaderData";
+import "./Product.css";
+import StarSVG from "./StarSVG";
+import { getPriceString } from "./getPriceString";
+import { useNavigate } from "react-router-dom";
+
+export const Product = () => {
+  const product = useLoaderData() as LoaderData<typeof productLoader>;
+
+  const priceStr = getPriceString(product.price);
+
+  return (
+    <>
+      <BackBtn />
+      <article className="product">
+        <div className="product-image">
+          <img src={product.image} />
+        </div>
+        <div className="product-title">{product.title}</div>
+        <div className="product-price">{priceStr}</div>
+        <div className="product-rating">
+          {product.rating.rate.toFixed(1)}
+          <StarSVG />
+        </div>
+        <div className="product-description">{product.description}</div>
+      </article>
+    </>
+  );
+};
+
+const BackBtn = () => {
+  const navigate = useNavigate();
+
+  return (
+    <button className="back-btn" onClick={() => navigate(-1)}>
+      Back
+    </button>
+  );
+};
