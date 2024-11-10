@@ -14,6 +14,8 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
+  border-radius: 10px;
+
   background-color: #ffffff;
   width: 10rem;
   height: 15rem;
