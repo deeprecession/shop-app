@@ -43,7 +43,7 @@ const ProductListElement: React.FC<ProductListElementProps> = ({
         <div className="product-list-element__price">{priceStr}</div>
         <div className="product-list-element__title">{product.title}</div>
         <div className="product-list-element__rating">
-          {product.rating.rate}
+          {product.rating.rate.toFixed(1)}
           <StarSVG />
         </div>
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
