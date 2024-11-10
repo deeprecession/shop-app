@@ -78,19 +78,3 @@
 
   object-fit: contain;
 }
-
-.like-button {
-  grid-area: 1 / 5 / 2 / 6;
-  width: 1.2rem;
-  height: 1.2rem;
-
-  justify-self: right;
-  align-self: flex-start;
-
-  object-fit: contain;
-}
-
-.like-button:hover path {
-  transition: fill 0.2s ease;
-  fill: red;
-}
