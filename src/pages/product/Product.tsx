@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
-import { productLoader } from "./router";
-import { LoaderData } from "./LoaderData";
+import { productLoader } from "./ProductPage";
+import { LoaderData } from "../../utils/LoaderData";
 import "./Product.css";
-import StarSVG from "./StarSVG";
-import { getPriceString } from "./getPriceString";
+import StarSVG from "../../components/StarSVG";
+import { getPriceString } from "../../utils/getPriceString";
 import { useNavigate } from "react-router-dom";
 
 export const Product = () => {

@@ -1,51 +1,23 @@
-import App from "./App.tsx";
-import { createBrowserRouter, LoaderFunctionArgs } from "react-router-dom";
-import { ProductList } from "./ProductList.tsx";
-import { Product } from "./Product.tsx";
-import { ProductData } from "./ProductData.ts";
-
-export const productListLoader = async (): Promise<ProductData[]> => {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products = await res.json();
-
-  return products;
-};
-
-export const productLoader = async ({
-  params,
-}: LoaderFunctionArgs): Promise<ProductData> => {
-  const { productId } = params;
-
-  if (!productId) {
-    throw new Error("Product ID is required");
-  }
-
-  const response = await fetch(
-    `https://fakestoreapi.com/products/${productId}`,
-  );
-
-  if (!response.ok) {
-    throw new Response("Product not found", { status: 404 });
-  }
-
-  const productData = await response.json();
-
-  return productData;
-};
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home/HomePage.tsx";
+import ProductListPage, {
+  productListLoader,
+} from "./pages/productList/ProductListPage.tsx";
+import ProductPage, { productLoader } from "./pages/product/ProductPage.tsx";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
   {
     path: "/products",
     loader: productListLoader,
-    element: <ProductList />,
+    element: <ProductListPage />,
   },
   {
     path: "/products/:productId",
     loader: productLoader,
-    element: <Product />,
+    element: <ProductPage />,
   },
 ]);

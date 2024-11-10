@@ -1,12 +1,12 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { LoaderData } from "./LoaderData";
-import { productListLoader } from "./router";
 import { ProductData } from "./ProductData";
-import { getPriceString } from "./getPriceString";
 import "./ProductList.css";
 import { useState } from "react";
-import StarSVG from "./StarSVG";
-import LikeButton from "./LikeButton";
+import { LoaderData } from "../../utils/LoaderData";
+import { productListLoader } from "./ProductListPage";
+import { getPriceString } from "../../utils/getPriceString";
+import StarSVG from "../../components/StarSVG";
+import LikeButton from "../../components/LikeButton/LikeButton";
 
 export const ProductList = () => {
   const products = useLoaderData() as LoaderData<typeof productListLoader>;

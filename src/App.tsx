@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
-import "./App.css";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./styles/global.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
 
-function App() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <Link to={"products"}>Check out the products</Link>
-    </div>
-  );
-}
-
-export default App;
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+);
