@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { productLoader } from "./ProductPage";
+import { productLoader } from "./productLoader";
 import { LoaderData } from "../../utils/LoaderData";
 import "./Product.css";
 import StarSVG from "../../components/StarSVG";
