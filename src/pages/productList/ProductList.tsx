@@ -14,7 +14,11 @@ export const ProductList = () => {
   return (
     <div className="product-list">
       {products.map((product) => {
-        return <ProductListElement product={product} />;
+        return (
+          <div key={product.id}>
+            <ProductListElement product={product} />
+          </div>
+        );
       })}
     </div>
   );
