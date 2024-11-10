@@ -3,7 +3,7 @@ import { ProductData } from "./ProductData";
 import "./ProductList.css";
 import { useState } from "react";
 import { LoaderData } from "../../utils/LoaderData";
-import { productListLoader } from "./ProductListPage";
+import { productListLoader } from "./productListLoader";
 import { getPriceString } from "../../utils/getPriceString";
 import StarSVG from "../../components/StarSVG";
 import LikeButton from "../../components/LikeButton/LikeButton";
