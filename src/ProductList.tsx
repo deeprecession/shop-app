@@ -60,7 +60,8 @@ const LikeButton = ({ clickHandler, isLiked }: LikeButtonProps) => {
   return (
     <div
       className="like-button"
-      onClick={() => {
+      onClick={(event) => {
+        event.preventDefault();
         clickHandler(!isLiked);
       }}
     >
