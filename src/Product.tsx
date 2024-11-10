@@ -12,7 +12,7 @@ export const Product = () => {
   const priceStr = getPriceString(product.price);
 
   return (
-    <>
+    <div className="">
       <BackBtn />
       <article className="product">
         <div className="product-image">
@@ -26,7 +26,7 @@ export const Product = () => {
         </div>
         <div className="product-description">{product.description}</div>
       </article>
-    </>
+    </div>
   );
 };
 
