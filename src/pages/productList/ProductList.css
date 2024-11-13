@@ -1,9 +1,11 @@
 .paginated-product-list {
   display: flex;
-  justify-content: space-between;
   flex-flow: column;
-  gap: 5rem;
+  row-gap: 5rem;
+
+  justify-content: space-between;
   align-content: center;
+
   width: 100%;
 }
 
@@ -20,7 +22,8 @@
 .product-list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  justify-content: space-between;
+
+  justify-items: stretch;
 
   width: 100%;
   gap: 2rem;
@@ -30,13 +33,13 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+
+  justify-self: stretch;
+  align-self: stretch;
 
   border-radius: 10px;
 
   background-color: #ffffff;
-  width: 100%;
   height: 15rem;
 
   padding: 0.5rem;
@@ -85,12 +88,17 @@
   height: 10rem;
   overflow: hidden;
   border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-list-element__image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 
 .star-svg {

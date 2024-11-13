@@ -3,12 +3,6 @@
   padding: 2rem;
   text-align: center;
 
-  display: flex;
-  flex-wrap: nowrap;
-
-  justify-content: center;
-  align-items: stretch;
-
   max-width: 75rem;
   min-height: 100vh;
 
@@ -28,9 +22,6 @@
 
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
   width: 100%;
 }
 
