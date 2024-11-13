@@ -1,44 +1,26 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./ProductList.css";
 
 import { useState } from "react";
-import { LoaderData } from "../../utils/LoaderData";
-import { productListLoader } from "./productListLoader";
 import { getPriceString } from "../../utils/getPriceString";
 import StarSVG from "../../components/StarSVG";
 import LikeButton from "../../components/LikeButton/LikeButton";
 import { ProductData } from "../product/ProductData";
 
-export const ProductList = () => {
-  const products = useLoaderData() as LoaderData<typeof productListLoader>;
-
-  return (
-    <div className="product-list-page">
-      <div className="product-list">
-        {products.map((product) => {
-          return (
-            <div key={product.id}>
-              <ProductListElement product={product} />
-            </div>
-          );
-        })}
-      </div>
-
-      <PaginationControls />
-    </div>
-  );
+type ProductListProps = {
+  products: ProductData[];
 };
 
-const PaginationControls = () => {
-  const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+export const ProductList = ({ products }: ProductListProps) => {
   return (
-    <div className="product-list-pagination-links">
-      {pages.map((pageNum) => (
-        <Link key={pageNum} to={`/products?page=${pageNum}`}>
-          {pageNum}
-        </Link>
-      ))}
+    <div className="product-list">
+      {products.map((product) => {
+        return (
+          <div key={product.id}>
+            <ProductListElement product={product} />
+          </div>
+        );
+      })}
     </div>
   );
 };

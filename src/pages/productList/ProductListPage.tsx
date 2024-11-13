@@ -1,7 +1,7 @@
-import { ProductList } from "./ProductList";
+import PaginatedProductList from "./PaginatedProductList";
 
 const ProductListPage = () => {
-  return <ProductList />;
+  return <PaginatedProductList itemsPerPage={15} />;
 };
 
 export default ProductListPage;
