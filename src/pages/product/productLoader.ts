@@ -1,5 +1,6 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { ProductData } from "./ProductData";
+import catchError from "../../utils/catchError";
 
 export const productLoader = async ({
   params,
@@ -10,15 +11,18 @@ export const productLoader = async ({
     throw new Error("Product ID is required");
   }
 
-  const response = await fetch(
-    `https://fakestoreapi.com/products/${productId}`,
-  );
+  const response = await fetch(`https://dummyjson.com/products/${productId}`);
 
   if (!response.ok) {
     throw new Response("Product not found", { status: 404 });
   }
 
-  const productData = await response.json();
+  const [err, productData] = await catchError<ProductData>(response.json());
+  if (err) {
+    console.log(err);
+  } else {
+    return productData;
+  }
 
-  return productData;
+  throw new Response("Product not found", { status: 404 });
 };
