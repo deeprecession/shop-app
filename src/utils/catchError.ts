@@ -1,6 +1,6 @@
 async function catchError<T>(
   promise: Promise<T>,
-): Promise<[undefined, Promise<T>] | [Error]> {
+): Promise<[undefined, T] | [Error]> {
   return promise
     .then((res) => {
       return [undefined, res] as [undefined, T];
