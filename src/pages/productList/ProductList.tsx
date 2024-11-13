@@ -15,11 +15,7 @@ export const ProductList = ({ products }: ProductListProps) => {
   return (
     <div className="product-list">
       {products.map((product) => {
-        return (
-          <div key={product.id}>
-            <ProductListElement product={product} />
-          </div>
-        );
+        return <ProductListElement key={product.id} product={product} />;
       })}
     </div>
   );
