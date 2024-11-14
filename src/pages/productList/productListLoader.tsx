@@ -1,5 +1,4 @@
 import catchError from "../../utils/catchError";
-import LikedProductStorage from "../../utils/likedProductStorage";
 import { ProductData } from "../product/ProductData";
 
 type FakeJsonResponse = {

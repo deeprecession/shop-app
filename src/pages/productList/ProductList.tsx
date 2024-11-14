@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getPriceString } from "../../utils/getPriceString";
 import StarSVG from "../../components/StarSVG";
 import LikeButton from "../../components/LikeButton/LikeButton";
