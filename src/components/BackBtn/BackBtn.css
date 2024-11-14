@@ -1,0 +1,11 @@
+.back-btn {
+	background-color: #0288d1;
+	border: none;
+	font-size: 1.2rem;
+	color: white;
+	cursor: pointer;
+	grid-area: back-button;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	border-radius: 5px;
+}
