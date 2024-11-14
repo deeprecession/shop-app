@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home/HomePage.tsx";
+import Home from "./pages/home/HomePage.tsx";
 import { productListLoader } from "./pages/productList/productListLoader.tsx";
 import ProductPage from "./pages/product/ProductPage.tsx";
 import ProductListPage from "./pages/productList/ProductListPage.tsx";
