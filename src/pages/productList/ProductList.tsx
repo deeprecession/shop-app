@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getPriceString } from "../../utils/getPriceString";
 import StarSVG from "../../components/StarSVG";
 import LikeButton from "../../components/LikeButton/LikeButton";
 import { ProductData } from "../product/ProductData";
+import ProductLikeStorage from "../../utils/likedProductStorage";
 
 type ProductListProps = {
   products: ProductData[];
@@ -28,11 +29,17 @@ interface ProductListElementProps {
 const ProductListElement: React.FC<ProductListElementProps> = ({
   product,
 }: ProductListElementProps) => {
-  const [isLiked, setLiked] = useState(false);
+  const [isLiked, setLiked] = useState(ProductLikeStorage.isLiked(product.id));
   const priceStr = getPriceString(product.price);
 
   const likeClickHandler = (isLiked: boolean) => {
     setLiked(isLiked);
+
+    if (isLiked) {
+      ProductLikeStorage.add(product.id);
+    } else {
+      ProductLikeStorage.remove(product.id);
+    }
   };
 
   return (

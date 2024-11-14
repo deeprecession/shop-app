@@ -1,4 +1,5 @@
 import catchError from "../../utils/catchError";
+import LikedProductStorage from "../../utils/likedProductStorage";
 import { ProductData } from "../product/ProductData";
 
 type FakeJsonResponse = {
@@ -19,11 +20,10 @@ export const productListLoader = async (): Promise<ProductListLoaderData> => {
   const [err, jsonResopnse] = await catchError<FakeJsonResponse>(res.json());
   if (err) {
     console.error(err);
-  } else {
-    return {
-      products: jsonResopnse.products,
-    };
+    throw new Response("Product not found", { status: 404 });
   }
 
-  throw new Response("Product not found", { status: 404 });
+  return {
+    products: jsonResopnse.products,
+  };
 };
