@@ -3,8 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../utils/LoaderData";
 import { productListLoader } from "./productListLoader";
 import { ProductData } from "../product/ProductData";
-import { FormEventHandler, useState } from "react";
-import debounce from "../../utils/debounce";
+import { useState } from "react";
+import SearchBar from "./SearchBar";
 
 const ProductListPage = () => {
   const loadedData = useLoaderData() as LoaderData<typeof productListLoader>;
@@ -18,7 +18,7 @@ const ProductListPage = () => {
   };
 
   return (
-    <div>
+    <div className="product-list-page">
       <SearchBar
         products={loadedData.products}
         updateHandler={searchUpdateHandler}
@@ -26,46 +26,6 @@ const ProductListPage = () => {
       <PaginatedProductList itemsPerPage={15} productItems={filteredProducts} />
     </div>
   );
-};
-
-type SearchBarProps = {
-  products: ProductData[];
-  updateHandler: (foundProducts: ProductData[]) => void;
-};
-
-const SearchBar = ({ products, updateHandler }: SearchBarProps) => {
-  const filterProductsPredicate = (
-    query: string,
-    product: ProductData,
-  ): boolean => {
-    const productTitle = product.title.toLowerCase();
-    return productTitle.includes(query);
-  };
-
-  const inputHandler = (input: string) => {
-    const query = input.toLowerCase();
-
-    if (query === "") {
-      updateHandler(products);
-      return;
-    }
-
-    const filteredProducts = products.filter((product) => {
-      return filterProductsPredicate(query, product);
-    });
-
-    updateHandler(filteredProducts);
-  };
-
-  const debouncedInputHandler = debounce(inputHandler, 300);
-
-  const onInput: FormEventHandler<HTMLInputElement> = (event) => {
-    const inputVal = event.currentTarget.value;
-
-    debouncedInputHandler(inputVal);
-  };
-
-  return <input onInput={onInput} aria-label="Search products" />;
 };
 
 export default ProductListPage;
