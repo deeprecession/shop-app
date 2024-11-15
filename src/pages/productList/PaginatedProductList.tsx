@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { ProductList } from "./ProductList";
 import "./PaginationConroller.css";
@@ -14,6 +14,10 @@ const PaginatedProductList = ({
 	productItems,
 }: PaginationControlsProps) => {
 	const [itemOffset, setItemOffset] = useState(0);
+
+	useEffect(() => {
+		setItemOffset(0);
+	}, [productItems]);
 
 	const endOffset = itemOffset + itemsPerPage;
 	const currentItems = productItems.slice(itemOffset, endOffset);
