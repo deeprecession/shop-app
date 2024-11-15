@@ -4,7 +4,7 @@ import { LoaderData } from "../../utils/LoaderData";
 import { productListLoader } from "./productListLoader";
 import { ProductData } from "../product/ProductData";
 import { FormEventHandler, useState } from "react";
-import throttle from "../../utils/throttle";
+import debounce from "../../utils/debounce";
 
 const ProductListPage = () => {
   const loadedData = useLoaderData() as LoaderData<typeof productListLoader>;
@@ -42,8 +42,8 @@ const SearchBar = ({ products, updateHandler }: SearchBarProps) => {
     return productTitle.includes(query);
   };
 
-  const inputHandler: FormEventHandler<HTMLInputElement> = (event) => {
-    const query = event.currentTarget.value.toLowerCase();
+  const inputHandler = (input: string) => {
+    const query = input.toLowerCase();
 
     if (query === "") {
       updateHandler(products);
@@ -57,12 +57,15 @@ const SearchBar = ({ products, updateHandler }: SearchBarProps) => {
     updateHandler(filteredProducts);
   };
 
-  return (
-    <input
-      onInput={(event) => inputHandler(event)}
-      aria-label="Search products"
-    />
-  );
+  const debouncedInputHandler = debounce(inputHandler, 300);
+
+  const onInput: FormEventHandler<HTMLInputElement> = (event) => {
+    const inputVal = event.currentTarget.value;
+
+    debouncedInputHandler(inputVal);
+  };
+
+  return <input onInput={onInput} aria-label="Search products" />;
 };
 
 export default ProductListPage;
