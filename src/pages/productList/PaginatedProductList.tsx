@@ -1,20 +1,18 @@
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
-import { useLoaderData } from "react-router-dom";
-import { LoaderData } from "../../utils/LoaderData";
-import { productListLoader } from "./productListLoader";
 import { ProductList } from "./ProductList";
 import "./PaginationConroller.css";
+import { ProductData } from "../product/ProductData";
 
 type PaginationControlsProps = {
 	itemsPerPage: number;
+	productItems: ProductData[];
 };
 
-const PaginatedProductList = ({ itemsPerPage }: PaginationControlsProps) => {
-	const loadedData = useLoaderData() as LoaderData<typeof productListLoader>;
-
-	const productItems = loadedData.products;
-
+const PaginatedProductList = ({
+	itemsPerPage,
+	productItems,
+}: PaginationControlsProps) => {
 	const [itemOffset, setItemOffset] = useState(0);
 
 	const endOffset = itemOffset + itemsPerPage;
