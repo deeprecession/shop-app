@@ -73,6 +73,8 @@ export const productListSlice = createSlice({
 
 		setToFilterByCategory: (state, action: PayloadAction<string>) => {
 			state.filterByCategory = action.payload;
+
+			state.filteredProducts = filterProducts(state);
 		},
 	},
 
@@ -135,10 +137,27 @@ const filterLiked = (
 	return filteredProducts;
 };
 
+const filterByCategory = (
+	category: string,
+	products: ProductData[],
+): ProductData[] => {
+	if (category === "") {
+		return products;
+	}
+
+	const filteredProducts = products.filter((product) => {
+		return product.category === category;
+	});
+
+	return filteredProducts;
+};
+
 const filterProducts = (state: ProductListState): ProductData[] => {
 	let filteredProducts = filterByTitle(state.filterByTitle, state.allProducts);
 
 	filteredProducts = filterLiked(state.filterByLike, filteredProducts);
+
+	filteredProducts = filterByCategory(state.filterByCategory, filteredProducts);
 
 	return filteredProducts;
 };
