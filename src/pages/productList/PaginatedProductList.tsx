@@ -2,18 +2,16 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { ProductList } from "./ProductList";
 import "./PaginationConroller.css";
-import { ProductData } from "../product/ProductData";
+import { useAppSelector } from "../../hooks/reduxHooks";
+import { selectFilteredProducts } from "../../features/productList/productsListSlice";
 
 type PaginationControlsProps = {
 	itemsPerPage: number;
-	productItems: ProductData[];
 };
 
-const PaginatedProductList = ({
-	itemsPerPage,
-	productItems,
-}: PaginationControlsProps) => {
+const PaginatedProductList = ({ itemsPerPage }: PaginationControlsProps) => {
 	const [itemOffset, setItemOffset] = useState(0);
+	const productItems = useAppSelector(selectFilteredProducts);
 
 	useEffect(() => {
 		setItemOffset(0);

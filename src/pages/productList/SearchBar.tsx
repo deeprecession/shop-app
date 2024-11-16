@@ -1,38 +1,19 @@
 import { FormEventHandler } from "react";
 import debounce from "../../utils/debounce";
-import { ProductData } from "../product/ProductData";
 import "./SearchBar.css";
+import { useAppDispatch } from "../../hooks/reduxHooks";
+import { filterByTitle } from "../../features/productList/productsListSlice";
 
-type SearchBarProps = {
-	products: ProductData[];
-	updateHandler: (foundProducts: ProductData[]) => void;
-};
+const SearchBar = () => {
+	const dispatch = useAppDispatch();
 
-const SearchBar = ({ products, updateHandler }: SearchBarProps) => {
-	const filterProductsPredicate = (
-		query: string,
-		product: ProductData,
-	): boolean => {
-		const productTitle = product.title.toLowerCase();
-		return productTitle.includes(query);
-	};
-
-	const inputHandler = (input: string) => {
+	const updateState = (input: string) => {
 		const query = input.toLowerCase();
 
-		if (query === "") {
-			updateHandler(products);
-			return;
-		}
-
-		const filteredProducts = products.filter((product) => {
-			return filterProductsPredicate(query, product);
-		});
-
-		updateHandler(filteredProducts);
+		dispatch(filterByTitle(query));
 	};
 
-	const debouncedInputHandler = debounce(inputHandler, 300);
+	const debouncedInputHandler = debounce(updateState, 300);
 
 	const onInput: FormEventHandler<HTMLInputElement> = (event) => {
 		const inputVal = event.currentTarget.value;
