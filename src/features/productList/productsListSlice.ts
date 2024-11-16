@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductData } from "../../pages/product/ProductData";
 import catchError from "../../utils/catchError";
+import ProductLikeStorage from "../../utils/likedProductStorage";
 
 const fetchProducts = async (): Promise<ProductData[]> => {
 	const res = await fetch(`https://dummyjson.com/products?limit=0`);
@@ -58,19 +59,19 @@ export const productListSlice = createSlice({
 			state.filteredProducts = filterProducts(state);
 		},
 
-		filterByTitle: (state, action: PayloadAction<string>) => {
+		setToFilterByTitle: (state, action: PayloadAction<string>) => {
 			state.filterByTitle = action.payload;
 
 			state.filteredProducts = filterProducts(state);
 		},
 
-		filterByLike: (state, action: PayloadAction<boolean>) => {
+		setToFilterLiked: (state, action: PayloadAction<boolean>) => {
 			state.filterByLike = action.payload;
 
 			state.filteredProducts = filterProducts(state);
 		},
 
-		filterByCategory: (state, action: PayloadAction<string>) => {
+		setToFilterByCategory: (state, action: PayloadAction<string>) => {
 			state.filterByCategory = action.payload;
 		},
 	},
@@ -99,15 +100,45 @@ export const productListSlice = createSlice({
 	},
 });
 
-const filterProducts = (state: ProductListState): ProductData[] => {
+const filterByTitle = (
+	query: string,
+	products: ProductData[],
+): ProductData[] => {
+	if (query === "") {
+		return products;
+	}
+
 	const filterPredicate = (query: string, product: ProductData): boolean => {
 		const productTitle = product.title.toLowerCase();
 		return productTitle.includes(query);
 	};
 
-	const filteredProducts = state.allProducts.filter((product) => {
-		return filterPredicate(state.filterByTitle, product);
+	const filteredProducts = products.filter((product) => {
+		return filterPredicate(query, product);
 	});
+
+	return filteredProducts;
+};
+
+const filterLiked = (
+	toFilter: boolean,
+	products: ProductData[],
+): ProductData[] => {
+	if (!toFilter) {
+		return products;
+	}
+
+	const filteredProducts = products.filter((product) => {
+		return ProductLikeStorage.isLiked(product.id);
+	});
+
+	return filteredProducts;
+};
+
+const filterProducts = (state: ProductListState): ProductData[] => {
+	let filteredProducts = filterByTitle(state.filterByTitle, state.allProducts);
+
+	filteredProducts = filterLiked(state.filterByLike, filteredProducts);
 
 	return filteredProducts;
 };
@@ -116,8 +147,12 @@ type FakeJsonResponse = {
 	products: ProductData[];
 };
 
-export const { filterByCategory, filterByLike, filterByTitle, setAllProducts } =
-	productListSlice.actions;
+export const {
+	setToFilterByCategory,
+	setToFilterLiked,
+	setToFilterByTitle,
+	setAllProducts,
+} = productListSlice.actions;
 
 export const { selectAllProducts, selectFilteredProducts } =
 	productListSlice.selectors;

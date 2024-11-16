@@ -2,7 +2,7 @@ import { FormEventHandler } from "react";
 import debounce from "../../utils/debounce";
 import "./SearchBar.css";
 import { useAppDispatch } from "../../hooks/reduxHooks";
-import { filterByTitle } from "../../features/productList/productsListSlice";
+import { setToFilterByTitle } from "../../features/productList/productsListSlice";
 
 const SearchBar = () => {
 	const dispatch = useAppDispatch();
@@ -10,7 +10,7 @@ const SearchBar = () => {
 	const updateState = (input: string) => {
 		const query = input.toLowerCase();
 
-		dispatch(filterByTitle(query));
+		dispatch(setToFilterByTitle(query));
 	};
 
 	const debouncedInputHandler = debounce(updateState, 300);
