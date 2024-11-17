@@ -1,12 +1,3 @@
-.product-list-page {
-  display: flex;
-  flex-flow: column;
-  row-gap: 2rem;
-  align-items: center;
-
-  width: 100%;
-}
-
 .paginated-product-list {
   display: flex;
   flex-flow: column;

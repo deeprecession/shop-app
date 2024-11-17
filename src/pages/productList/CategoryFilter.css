@@ -1,0 +1,30 @@
+.category-filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 200px;
+}
+
+.category-filter-container label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+.category-filter-container select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.category-filter-container select:focus {
+  border-color: #0078d7;
+}
+
+.category-filter-container select option {
+  padding: 8px;
+}

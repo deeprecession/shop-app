@@ -5,6 +5,7 @@ import {
 	setToFilterByCategory,
 } from "../../features/productList/productsListSlice";
 import { ProductData } from "../product/ProductData";
+import "./CategoryFilter.css";
 
 const CategoryFilter = () => {
 	const dispatch = useAppDispatch();
@@ -20,8 +21,8 @@ const CategoryFilter = () => {
 	};
 
 	return (
-		<div>
-			<label htmlFor="categoryFilter">category</label>
+		<div className="category-filter-container">
+			<label htmlFor="categoryFilter">Category</label>
 			<select id="categoryFilter" onChange={onChange} defaultValue="">
 				<option value="">none</option>
 				{categories.map((categoryName, inx) => (

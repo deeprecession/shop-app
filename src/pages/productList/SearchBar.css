@@ -1,5 +1,34 @@
-.search-bar {
-  display: block;
-  width: 20rem;
-  padding: 0.3rem;
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 300px;
+}
+
+.search-bar-container label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+.search-bar-container input.search-bar {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.search-bar-container input.search-bar:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+}
+
+.search-bar-container input.search-bar::placeholder {
+  color: #aaa;
+  font-style: italic;
 }

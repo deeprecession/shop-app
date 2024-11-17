@@ -1,0 +1,27 @@
+.like-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.like-filter-container label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+.like-filter-container input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.like-filter-container input[type="checkbox"]:focus {
+  outline: 2px solid #0078d7;
+  outline-offset: 2px;
+}
+
+.like-filter-container input[type="checkbox"]:checked {
+  accent-color: #0078d7;
+}

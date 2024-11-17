@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../hooks/reduxHooks";
 import { fetchProductsThunk } from "../../features/productList/productsListSlice";
 import LikeFilterCheckbox from "./LikeFilter";
 import CategoryFilter from "./CategoryFilter";
+import "./ProductListPage.css";
 
 const ProductListPage = () => {
   const dispatch = useAppDispatch();
@@ -15,9 +16,12 @@ const ProductListPage = () => {
 
   return (
     <div className="product-list-page">
-      <SearchBar />
-      <LikeFilterCheckbox />
-      <CategoryFilter />
+      <div className="filter-panel">
+        <SearchBar />
+        <CategoryFilter />
+        <LikeFilterCheckbox />
+      </div>
+
       <PaginatedProductList itemsPerPage={15} />
     </div>
   );

@@ -22,7 +22,7 @@ const SearchBar = () => {
 	};
 
 	return (
-		<div>
+		<div className="search-bar-container">
 			<label htmlFor="search-bar"> Search Products</label>
 			<input
 				id="search-bar"

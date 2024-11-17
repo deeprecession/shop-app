@@ -1,6 +1,7 @@
 import { FormEvent } from "react";
 import { setToFilterLiked } from "../../features/productList/productsListSlice";
 import { useAppDispatch } from "../../hooks/reduxHooks";
+import "./LikeFilter.css";
 
 const LikeFilterCheckbox = () => {
 	const dispatch = useAppDispatch();
@@ -11,9 +12,14 @@ const LikeFilterCheckbox = () => {
 	};
 
 	return (
-		<div>
-			<input onChange={onChange} name="likeFilter" type="checkbox" />
-			<label htmlFor="likeFilter">onlyLiked</label>
+		<div className="like-filter-container">
+			<input
+				id="likeFilter"
+				onChange={onChange}
+				name="likeFilter"
+				type="checkbox"
+			/>
+			<label htmlFor="likeFilter">Show only liked items</label>
 		</div>
 	);
 };
