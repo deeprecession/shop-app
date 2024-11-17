@@ -5,7 +5,7 @@
   row-gap: 2rem;
 
   align-items: center;
-  width: 100%;
+  width: auto;
   padding: 1rem;
 }
 
@@ -30,7 +30,6 @@
 @media (max-width: 768px) {
   .filter-panel {
     flex-direction: column;
-    /* Stack filter items vertically on smaller screens */
     gap: 1rem;
   }
 }
