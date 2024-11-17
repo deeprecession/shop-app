@@ -1,23 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductData } from "../../pages/product/ProductData";
-import catchError from "../../utils/catchError";
 import ProductLikeStorage from "../../utils/likedProductStorage";
-
-const fetchProducts = async (): Promise<ProductData[]> => {
-	const res = await fetch(`https://dummyjson.com/products?limit=0`);
-
-	if (!res.ok) {
-		throw new Response("Product not found", { status: 404 });
-	}
-
-	const [err, jsonResopnse] = await catchError<FakeJsonResponse>(res.json());
-	if (err) {
-		console.error(err);
-		throw new Response("Product not found", { status: 404 });
-	}
-
-	return jsonResopnse.products;
-};
+import fetchProducts from "./fetchProducts";
 
 const emptyState: ProductListState = {
 	allProducts: [],
@@ -160,10 +144,6 @@ const filterProducts = (state: ProductListState): ProductData[] => {
 	filteredProducts = filterByCategory(state.filterByCategory, filteredProducts);
 
 	return filteredProducts;
-};
-
-type FakeJsonResponse = {
-	products: ProductData[];
 };
 
 export const {
