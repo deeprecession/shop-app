@@ -36,7 +36,7 @@ const PaginatedProductList = ({ itemsPerPage }: PaginationControlsProps) => {
 				nextLabel=">"
 				previousLabel="<"
 				onPageChange={handlePageClick}
-				pageRangeDisplayed={5}
+				pageRangeDisplayed={3}
 				pageCount={pageCount}
 				renderOnZeroPageCount={null}
 				pageClassName="page-item"
