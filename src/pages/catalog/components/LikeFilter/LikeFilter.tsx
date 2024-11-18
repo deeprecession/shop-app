@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
-import { setToFilterLiked } from "../../features/productList/productsListSlice";
-import { useAppDispatch } from "../../hooks/reduxHooks";
 import "./LikeFilter.css";
+import { useAppDispatch } from "../../../../hooks/reduxHooks";
+import { setToFilterLiked } from "../../../../features/productList/productsListSlice";
 
 const LikeFilterCheckbox = () => {
 	const dispatch = useAppDispatch();

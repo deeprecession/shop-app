@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import "./ProductList.css";
 
 import { useState } from "react";
-import { getPriceString } from "../../utils/getPriceString";
-import StarSVG from "../../components/StarSVG";
-import LikeButton from "../../components/LikeButton/LikeButton";
-import { ProductData } from "../product/ProductData";
-import ProductLikeStorage from "../../utils/likedProductStorage";
+import { ProductData } from "../../../product/ProductData";
+import { getPriceString } from "../../../../utils/getPriceString";
+import ProductLikeStorage from "../../../../utils/likedProductStorage";
+import StarSVG from "../../../../components/StarSVG";
+import LikeButton from "../../../../components/LikeButton/LikeButton";
 
 type ProductListProps = {
   products: ProductData[];

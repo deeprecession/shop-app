@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import PaginatedProductList from "./PaginatedProductList";
-import SearchBar from "./SearchBar";
 import { useAppDispatch } from "../../hooks/reduxHooks";
 import { fetchProductsThunk } from "../../features/productList/productsListSlice";
-import LikeFilterCheckbox from "./LikeFilter";
-import CategoryFilter from "./CategoryFilter";
-import "./ProductListPage.css";
+import "./CatalogPage.css";
+import SearchBar from "./components/SearchBar/SearchBar";
+import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
+import LikeFilterCheckbox from "./components/LikeFilter/LikeFilter";
+import PaginatedProductList from "./components/PaginationController/PaginationController";
 
-const ProductListPage = () => {
+const Catalog = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const ProductListPage = () => {
   );
 };
 
-export default ProductListPage;
+export default Catalog;

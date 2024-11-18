@@ -1,8 +1,8 @@
 import { FormEventHandler } from "react";
-import debounce from "../../utils/debounce";
 import "./SearchBar.css";
-import { useAppDispatch } from "../../hooks/reduxHooks";
-import { setToFilterByTitle } from "../../features/productList/productsListSlice";
+import { useAppDispatch } from "../../../../hooks/reduxHooks";
+import { setToFilterByTitle } from "../../../../features/productList/productsListSlice";
+import debounce from "../../../../utils/debounce";
 
 const SearchBar = () => {
 	const dispatch = useAppDispatch();
