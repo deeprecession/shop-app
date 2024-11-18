@@ -3,7 +3,7 @@ import { ProductData } from "../../pages/product/ProductData";
 import fetchProducts from "./fetchProducts";
 import filterProducts from "./filterProducts";
 
-const emptyState: ProductListState = {
+const emptyState: CatalogState = {
 	allProducts: [],
 	filteredProducts: [],
 
@@ -21,7 +21,7 @@ export const fetchProductsThunk = createAsyncThunk("productList", async () => {
 	return products;
 });
 
-export interface ProductListState {
+export interface CatalogState {
 	allProducts: ProductData[];
 	filteredProducts: ProductData[];
 
@@ -33,8 +33,8 @@ export interface ProductListState {
 	errorMsg: string | null;
 }
 
-export const productListSlice = createSlice({
-	name: "productList",
+export const catalogSlice = createSlice({
+	name: "catalog",
 	initialState: emptyState,
 	reducers: {
 		setAllProducts: (state, action: PayloadAction<ProductData[]>) => {
@@ -91,7 +91,7 @@ export const {
 	setToFilterLiked,
 	setToFilterByTitle,
 	setAllProducts,
-} = productListSlice.actions;
+} = catalogSlice.actions;
 
 export const { selectAllProducts, selectFilteredProducts } =
-	productListSlice.selectors;
+	catalogSlice.selectors;

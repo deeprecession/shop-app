@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../../hooks/reduxHooks";
-import { fetchProductsThunk } from "../../features/productList/productsListSlice";
 import "./CatalogPage.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
 import LikeFilterCheckbox from "./components/LikeFilter/LikeFilter";
 import PaginatedProductList from "./components/PaginationController/PaginationController";
+import { fetchProductsThunk } from "../../features/catalog/catalogSlice";
 
 const Catalog = () => {
   const dispatch = useAppDispatch();

@@ -1,8 +1,8 @@
 import { ProductData } from "../../pages/product/ProductData";
 import ProductLikeStorage from "../../utils/likedProductStorage";
-import { ProductListState } from "./productsListSlice";
+import { CatalogState } from "./catalogSlice";
 
-const filterProducts = (state: ProductListState): ProductData[] => {
+const filterProducts = (state: CatalogState): ProductData[] => {
 	let filteredProducts = filterByTitle(state.filterByTitle, state.allProducts);
 
 	filteredProducts = filterLiked(state.filterByLike, filteredProducts);

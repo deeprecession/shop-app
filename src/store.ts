@@ -5,9 +5,9 @@ import {
 	ThunkAction,
 } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { productListSlice } from "./features/productList/productsListSlice";
+import { catalogSlice } from "./features/catalog/catalogSlice";
 
-const rootReducer = combineSlices(productListSlice);
+const rootReducer = combineSlices(catalogSlice);
 
 export type RootState = ReturnType<AppStore["getState"]>;
 

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import "./PaginationController.css";
 import { useAppSelector } from "../../../../hooks/reduxHooks";
-import { selectFilteredProducts } from "../../../../features/productList/productsListSlice";
 import { ProductList } from "../ProductList/ProductList";
+import { selectFilteredProducts } from "../../../../features/catalog/catalogSlice";
 
 type PaginationControlsProps = {
 	itemsPerPage: number;

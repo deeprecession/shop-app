@@ -1,11 +1,11 @@
 import { FormEvent } from "react";
 import "./CategoryFilter.css";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
+import { ProductData } from "../../../product/ProductData";
 import {
 	selectAllProducts,
 	setToFilterByCategory,
-} from "../../../../features/productList/productsListSlice";
-import { ProductData } from "../../../product/ProductData";
+} from "../../../../features/catalog/catalogSlice";
 
 const CategoryFilter = () => {
 	const dispatch = useAppDispatch();
