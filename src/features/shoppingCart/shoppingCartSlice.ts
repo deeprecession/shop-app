@@ -1,20 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductData } from "../../pages/product/ProductData";
 
-type CardProduct = {
+export type CartProduct = {
 	product: ProductData;
 	count: number;
 };
 
 export interface CatalogState {
-	products: Map<number, CardProduct>;
+	products: { [id: number]: CartProduct };
 }
 
-export const shoppingCardSlice = createSlice({
-	name: "shoppingCard",
+export const shoppingCartSlice = createSlice({
+	name: "shoppingCart",
 
 	initialState: {
-		products: new Map<number, CardProduct>(),
+		products: {},
 	},
 
 	reducers: {
@@ -27,8 +27,8 @@ export const shoppingCardSlice = createSlice({
 	},
 
 	selectors: {
-		getAllProducts: (state): CardProduct[] => {
-			return Array.from(state.products.values());
+		getAllProducts: (state): CartProduct[] => {
+			return Array.from(Object.values(state.products));
 		},
 	},
 });
@@ -40,12 +40,12 @@ const addProductToCart = (
 	const productId = productToAdd.id;
 	const products = state.products;
 
-	const product = products.get(productId);
+	const product = products[productId];
 	if (product) {
 		product.count++;
 	} else {
 		const newProduct = { product: productToAdd, count: 1 };
-		products.set(productToAdd.id, newProduct);
+		products[productToAdd.id] = newProduct;
 	}
 
 	return { products };
@@ -58,10 +58,10 @@ const removeProductFromCart = (
 	const productId = productToAdd.id;
 	const products = state.products;
 
-	const product = products.get(productId);
+	const product = products[productId];
 	if (product) {
 		if (product.count <= 1) {
-			products.delete(productId);
+			products[productId];
 		} else {
 			product.count--;
 		}
@@ -72,5 +72,5 @@ const removeProductFromCart = (
 	return { products };
 };
 
-export const { getAllProducts } = shoppingCardSlice.selectors;
-export const { removeProduct, addProduct } = shoppingCardSlice.actions;
+export const { getAllProducts } = shoppingCartSlice.selectors;
+export const { removeProduct, addProduct } = shoppingCartSlice.actions;

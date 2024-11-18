@@ -1,7 +1,24 @@
 import "./BuyButton.css";
 
-const BuyButton = () => {
-  return <button className="buy-button">Add to Cart</button>;
+type BuyButtonProps = {
+  onClick: () => void;
+};
+
+const BuyButton = ({ onClick: addProductHandler }: BuyButtonProps) => {
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+
+        addProductHandler();
+
+        e.preventDefault();
+      }}
+      className="buy-button"
+    >
+      Add to Cart
+    </button>
+  );
 };
 
 export default BuyButton;

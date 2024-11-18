@@ -6,8 +6,9 @@ import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
 import LikeFilterCheckbox from "./components/LikeFilter/LikeFilter";
 import PaginatedProductList from "./components/PaginationController/PaginationController";
 import { fetchProductsThunk } from "../../features/catalog/catalogSlice";
+import { Link } from "react-router-dom";
 
-const Catalog = () => {
+const CatalogPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,6 +17,10 @@ const Catalog = () => {
 
   return (
     <div className="product-list-page">
+      <Link to="/cart">
+        <h2>Cart</h2>
+      </Link>
+
       <div className="filter-panel">
         <SearchBar />
         <CategoryFilter />
@@ -27,4 +32,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default CatalogPage;

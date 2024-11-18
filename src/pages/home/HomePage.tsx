@@ -4,7 +4,8 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <Link to={"products"}>Check out the products</Link>
+      <Link to={"catalog"}>catalog</Link>
+      <Link to={"cart"}>cart</Link>
     </div>
   );
 };

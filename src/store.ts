@@ -6,8 +6,9 @@ import {
 } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { catalogSlice } from "./features/catalog/catalogSlice";
+import { shoppingCartSlice } from "./features/shoppingCart/shoppingCartSlice";
 
-const rootReducer = combineSlices(catalogSlice);
+const rootReducer = combineSlices(catalogSlice, shoppingCartSlice);
 
 export type RootState = ReturnType<AppStore["getState"]>;
 

@@ -9,6 +9,8 @@ import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
 import "./ProductCard.css";
 import BuyButton from "./BuyButton";
+import { useAppDispatch } from "../../../../hooks/reduxHooks";
+import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
 
 interface ProductCardProps {
   product: ProductData;
@@ -20,6 +22,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [isLiked, setLiked] = useState(ProductLikeStorage.isLiked(product.id));
   const priceStr = getPriceString(product.price);
 
+  const dispatch = useAppDispatch();
+
   const likeClickHandler = (isLiked: boolean) => {
     setLiked(isLiked);
 
@@ -28,6 +32,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
     } else {
       ProductLikeStorage.remove(product.id);
     }
+  };
+
+  const addToChartHandler = () => {
+    dispatch(addProduct(product));
   };
 
   return (
@@ -49,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
 
         <div className="buy-button-container">
-          <BuyButton />
+          <BuyButton onClick={addToChartHandler} />
         </div>
       </article>
     </Link>
