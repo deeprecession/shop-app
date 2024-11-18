@@ -1,15 +1,14 @@
 .product-card {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 
   justify-self: stretch;
   align-self: stretch;
-
   border-radius: 10px;
 
   background-color: #ffffff;
-  height: 15rem;
+  height: 18rem;
 
   padding: 0.5rem;
 
@@ -93,4 +92,8 @@
   height: 0.8rem;
 
   object-fit: contain;
+}
+
+.buy-button-container {
+  grid-area: 8 / 1 / 9 / 6;
 }

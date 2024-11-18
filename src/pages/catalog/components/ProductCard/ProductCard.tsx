@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./ProductList.css";
+import "./ProductCard.css";
 
 import { useState } from "react";
 import { ProductData } from "../../../product/ProductData";
@@ -8,6 +8,7 @@ import ProductLikeStorage from "../../../../utils/likedProductStorage";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
 import "./ProductCard.css";
+import BuyButton from "./BuyButton";
 
 interface ProductCardProps {
   product: ProductData;
@@ -35,13 +36,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="product-card__image">
           <img loading="lazy" src={product.images[0]} alt={product.title}></img>
         </div>
+
         <div className="product-card__price">{priceStr}</div>
+
         <div className="product-card__title">{product.title}</div>
+
         <div className="product-card__rating">
           {product.rating.toFixed(1)}
           <StarSVG />
         </div>
+
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
+
+        <div className="buy-button-container">
+          <BuyButton />
+        </div>
       </article>
     </Link>
   );
