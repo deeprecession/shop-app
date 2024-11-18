@@ -27,8 +27,12 @@ export const shoppingCartSlice = createSlice({
 	},
 
 	selectors: {
-		getAllProducts: (state): CartProduct[] => {
+		getAllProducts: (state: CatalogState): CartProduct[] => {
 			return Array.from(Object.values(state.products));
+		},
+		getProductCount: (state: CatalogState, productId: number): number => {
+			const product = state.products[productId];
+			return product ? product.count : 0;
 		},
 	},
 });
@@ -72,5 +76,5 @@ const removeProductFromCart = (
 	return { products };
 };
 
-export const { getAllProducts } = shoppingCartSlice.selectors;
+export const { getAllProducts, getProductCount } = shoppingCartSlice.selectors;
 export const { removeProduct, addProduct } = shoppingCartSlice.actions;

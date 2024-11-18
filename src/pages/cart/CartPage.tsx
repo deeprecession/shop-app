@@ -1,16 +1,19 @@
-import { useSelector } from "react-redux";
 import { getAllProducts } from "../../features/shoppingCart/shoppingCartSlice";
-import ProductCard from "./CartProductCart/ProductCart";
+import ProductCard from "./CartProduct/CartProduct";
+import "./CartPage.css";
+import { useAppSelector } from "../../hooks/reduxHooks";
 
 const CartPage = () => {
-	const products = useSelector(getAllProducts);
+	const products = useAppSelector(getAllProducts);
 
 	return (
 		<div className="cart-page">
 			<h1>Cart</h1>
-			{products.map((product, id) => (
-				<ProductCard key={id} cardProduct={product} />
-			))}
+			<div className="cart-products">
+				{products.map((product, id) => (
+					<ProductCard key={id} cardProduct={product} />
+				))}
+			</div>
 		</div>
 	);
 };

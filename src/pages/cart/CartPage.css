@@ -1,0 +1,13 @@
+.cart-page {}
+
+.cart-products {
+	width: 100%;
+
+	display: flex;
+	flex-flow: column;
+
+	justify-items: center;
+	align-items: center;
+
+	gap: 2rem;
+}
