@@ -43,7 +43,7 @@ const ProductListElement: React.FC<ProductListElementProps> = ({
   };
 
   return (
-    <Link className="product-link" to={`${product.id.toString()}`}>
+    <Link className="product-link" to={`/products/${product.id.toString()}`}>
       <article className="product-list-element">
         <div className="product-list-element__image">
           <img loading="lazy" src={product.images[0]} alt={product.title}></img>
