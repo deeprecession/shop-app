@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-import { useState } from "react";
 import { ProductData } from "../../../product/ProductData";
 import { getPriceString } from "../../../../utils/getPriceString";
-import ProductLikeStorage from "../../../../utils/likedProductStorage";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
 import "./ProductCard.css";
 import BuyButton from "./BuyButton";
-import { useAppDispatch } from "../../../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
+import {
+  isProductLiked,
+  toggleLiked,
+} from "../../../../features/likedProducts/likedProductsSlice";
 
 interface ProductCardProps {
   product: ProductData;
@@ -19,19 +21,13 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
 }: ProductCardProps) => {
-  const [isLiked, setLiked] = useState(ProductLikeStorage.isLiked(product.id));
+  const isLiked = useAppSelector((state) => isProductLiked(state, product.id));
   const priceStr = getPriceString(product.price);
 
   const dispatch = useAppDispatch();
 
-  const likeClickHandler = (isLiked: boolean) => {
-    setLiked(isLiked);
-
-    if (isLiked) {
-      ProductLikeStorage.add(product.id);
-    } else {
-      ProductLikeStorage.remove(product.id);
-    }
+  const likeClickHandler = () => {
+    dispatch(toggleLiked(product.id));
   };
 
   const addToChartHandler = () => {

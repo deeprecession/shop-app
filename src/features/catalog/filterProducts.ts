@@ -1,5 +1,6 @@
+import { useAppSelector } from "../../hooks/reduxHooks";
 import { ProductData } from "../../pages/product/ProductData";
-import ProductLikeStorage from "../../utils/likedProductStorage";
+import { isProductLiked } from "../likedProducts/likedProductsSlice";
 import { CatalogState } from "./catalogSlice";
 
 const filterProducts = (state: CatalogState): ProductData[] => {
@@ -41,7 +42,7 @@ const filterLiked = (
 	}
 
 	const filteredProducts = products.filter((product) => {
-		return ProductLikeStorage.isLiked(product.id);
+		return useAppSelector((state) => isProductLiked(state, product.id));
 	});
 
 	return filteredProducts;

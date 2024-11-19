@@ -10,14 +10,19 @@ import { shoppingCartSlice } from "./features/shoppingCart/shoppingCartSlice";
 import storage from "redux-persist/lib/storage";
 import { PersistConfig, PersistorAction, persistStore } from "redux-persist";
 import persistReducer from "redux-persist/es/persistReducer";
+import { likedProductsSlice } from "./features/likedProducts/likedProductsSlice";
 
 const persistConfig: PersistConfig<any, any, any, any> = {
 	key: "root",
 	storage,
-	whitelist: ["shoppingCart"],
+	whitelist: ["shoppingCart", "likedProducts"],
 };
 
-const rootReducer = combineSlices(catalogSlice, shoppingCartSlice);
+const rootReducer = combineSlices(
+	catalogSlice,
+	shoppingCartSlice,
+	likedProductsSlice,
+);
 
 const persistentRootReducer = persistReducer(persistConfig, rootReducer);
 

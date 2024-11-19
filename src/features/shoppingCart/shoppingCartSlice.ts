@@ -10,12 +10,14 @@ export interface CatalogState {
 	products: { [id: number]: CartProduct };
 }
 
+const initialState: CatalogState = {
+	products: {},
+};
+
 export const shoppingCartSlice = createSlice({
 	name: "shoppingCart",
 
-	initialState: {
-		products: {},
-	},
+	initialState: initialState,
 
 	reducers: {
 		addProduct: (state, action: PayloadAction<ProductData>) => {
