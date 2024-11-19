@@ -2,24 +2,26 @@
   display: grid;
 
   grid-template-areas:
-    "image price"
-    "image title"
-    "image count";
-  grid-template-columns: 1fr 2fr;
+    "image price price price"
+    "image title title title"
+    "image like remove count";
+  grid-template-columns: 8rem 0.2fr 0.2fr 1fr;
   grid-template-rows: auto auto auto;
+
+  gap: 1rem;
 
   justify-self: stretch;
   align-self: stretch;
 
   border-radius: 10px;
   background-color: #ffffff;
-  height: 10rem;
-  width: 30rem;
 
   padding: 1rem;
 
   align-items: center;
   justify-items: center;
+  align-content: center;
+  justify-content: center;
 
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.1),
@@ -40,6 +42,7 @@
 .cart-product-link {
   text-decoration: none;
   color: inherit;
+  cursor: default;
 }
 
 .cart-product__title {
@@ -51,10 +54,16 @@
   text-wrap: pretty;
 
   grid-area: title;
+
+  text-decoration: none;
 }
 
 .cart-product__count {
   grid-area: count;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-product__rating {
@@ -93,9 +102,15 @@
   object-position: center;
 }
 
-.star-svg {
-  width: 0.8rem;
-  height: 0.8rem;
+.cart-product__like-button {
+  grid-area: like;
+  justify-self: center;
+}
 
-  object-fit: contain;
+.cart-product__remove-button {
+  width: 1.5rem;
+  grid-area: remove;
+  justify-self: center;
+
+  cursor: pointer;
 }

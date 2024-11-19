@@ -2,9 +2,11 @@
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	padding-top: 5rem;
+
+	gap: 1rem;
 }
 
-.cart-products {
+.cart-products-container {
 	width: 100%;
 
 	display: flex;

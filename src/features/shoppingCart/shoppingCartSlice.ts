@@ -23,8 +23,14 @@ export const shoppingCartSlice = createSlice({
 		addProduct: (state, action: PayloadAction<ProductData>) => {
 			state.products = addProductToCart(action.payload, state).products;
 		},
-		removeProduct: (state, action: PayloadAction<ProductData>) => {
-			state.products = removeProductFromCart(action.payload, state).products;
+		removeOneProduct: (state, action: PayloadAction<ProductData>) => {
+			state.products = removeOneProductFromCart(action.payload, state).products;
+		},
+		removeWholeProduct: (state, action: PayloadAction<ProductData>) => {
+			state.products = removeWholeProductFromCart(
+				action.payload,
+				state,
+			).products;
 		},
 	},
 
@@ -75,7 +81,22 @@ const addProductToCart = (
 	return { products };
 };
 
-const removeProductFromCart = (
+const removeWholeProductFromCart = (
+	productToAdd: ProductData,
+	state: CatalogState,
+): CatalogState => {
+	const productId = productToAdd.id;
+	const products = state.products;
+
+	const product = products[productId];
+	if (product) {
+		delete products[productId];
+	}
+
+	return { products };
+};
+
+const removeOneProductFromCart = (
 	productToAdd: ProductData,
 	state: CatalogState,
 ): CatalogState => {
@@ -85,12 +106,10 @@ const removeProductFromCart = (
 	const product = products[productId];
 	if (product) {
 		if (product.count <= 1) {
-			products[productId];
+			delete products[productId];
 		} else {
 			product.count--;
 		}
-	} else {
-		return { products };
 	}
 
 	return { products };
@@ -102,4 +121,5 @@ export const {
 	getCartTotalPrice,
 	getCartItemsCount,
 } = shoppingCartSlice.selectors;
-export const { removeProduct, addProduct } = shoppingCartSlice.actions;
+export const { removeWholeProduct, removeOneProduct, addProduct } =
+	shoppingCartSlice.actions;
