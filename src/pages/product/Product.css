@@ -1,44 +1,53 @@
 .product-page {
   display: flex;
   align-items: center;
-  /* justify-items: center; */
   gap: 2rem;
   flex-direction: column;
 
-  width: 100%;
+  padding-top: 2rem;
 }
 
 .product {
   display: grid;
 
-  max-height: 100rem;
+  align-items: center;
+  justify-items: center;
+
   max-width: 30rem;
 
-  align-items: center;
-  align-items: start;
-
   background-color: white;
-
-  padding: 2rem;
+  padding: 1rem;
 
   column-gap: 0.5rem;
-  row-gap: 0.5rem;
+  row-gap: 1.5rem;
 
-  grid-template-rows: 2rem 20rem 3rem auto;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 0.5fr;
 
   grid-template-areas:
-    "title title"
-    "image image"
-    "rating price"
-    "desc desc";
+    "title title category"
+    "image image image"
+    "rating price price"
+    "buy buy like"
+    "desc desc desc";
+
+  position: relative;
 }
 
 .product-title {
   font-size: 1.2rem;
-  color: black;
+
+  font-weight: bold;
 
   grid-area: title;
+  align-self: center;
+}
+
+.product-category {
+  font-size: 1rem;
+
+  font-style: italic;
+
+  grid-area: category;
   align-self: center;
 
   padding: 0.5rem;
@@ -78,4 +87,14 @@
   color: red;
   grid-area: price;
   align-self: center;
+}
+
+.product-buy-button {
+  grid-area: buy;
+  min-width: 8rem;
+  width: 90%;
+}
+
+.product-like-button {
+  grid-area: like;
 }

@@ -6,13 +6,13 @@ import { getPriceString } from "../../../../utils/getPriceString";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
 import "./ProductCard.css";
-import BuyButton from "./BuyButton";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
 import {
   isProductLiked,
   toggleLiked,
 } from "../../../../features/likedProducts/likedProductsSlice";
+import BuyButton from "../../../../components/BuyButton/BuyButton";
 
 interface ProductCardProps {
   product: ProductData;
