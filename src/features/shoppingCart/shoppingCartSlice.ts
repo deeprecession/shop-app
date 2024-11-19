@@ -34,6 +34,24 @@ export const shoppingCartSlice = createSlice({
 			const product = state.products[productId];
 			return product ? product.count : 0;
 		},
+		getCartTotalPrice: (state: CatalogState): number => {
+			let sumPrice = 0;
+
+			Object.entries(state.products).forEach(([_, { product, count }]) => {
+				sumPrice += product.price * count;
+			});
+
+			return sumPrice;
+		},
+		getCartItemsCount: (state: CatalogState): number => {
+			let productCount = 0;
+
+			Object.entries(state.products).forEach(([_, { count }]) => {
+				productCount += count;
+			});
+
+			return productCount;
+		},
 	},
 });
 
@@ -76,5 +94,10 @@ const removeProductFromCart = (
 	return { products };
 };
 
-export const { getAllProducts, getProductCount } = shoppingCartSlice.selectors;
+export const {
+	getAllProducts,
+	getProductCount,
+	getCartTotalPrice,
+	getCartItemsCount,
+} = shoppingCartSlice.selectors;
 export const { removeProduct, addProduct } = shoppingCartSlice.actions;

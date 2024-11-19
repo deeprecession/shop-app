@@ -1,0 +1,17 @@
+.cart-order {
+	display: flex;
+	flex-flow: column;
+}
+
+.cart-order__total-price {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.cart-order__total-price span {
+	color: red;
+}
+
+.cart-order__count {
+	font-size: 1.5rem;
+}
