@@ -65,6 +65,9 @@ export const catalogSlice = createSlice({
 	selectors: {
 		selectAllProducts: (state) => state.allProducts,
 		selectFilteredProducts: (state) => state.filteredProducts,
+		selectProductById: (state, productId: number): ProductData | undefined => {
+			return state.allProducts?.[productId];
+		},
 	},
 
 	extraReducers: (builder) => {
@@ -93,5 +96,5 @@ export const {
 	setAllProducts,
 } = catalogSlice.actions;
 
-export const { selectAllProducts, selectFilteredProducts } =
+export const { selectAllProducts, selectFilteredProducts, selectProductById } =
 	catalogSlice.selectors;
