@@ -1,15 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./styles/global.css";
-import { RouterProvider } from "react-router-dom";
-import { router } from "./router";
-import { Provider } from "react-redux";
-import { store } from "./store";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </StrictMode>,
-);
+const App = () => {
+  return (
+    <div>
+      <NavBar />
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+
+export default App;
