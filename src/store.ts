@@ -8,7 +8,7 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { catalogSlice } from "./features/catalog/catalogSlice";
 import { shoppingCartSlice } from "./features/shoppingCart/shoppingCartSlice";
 import storage from "redux-persist/lib/storage";
-import { PersistConfig, persistStore } from "redux-persist";
+import { PersistConfig, PersistorAction, persistStore } from "redux-persist";
 import persistReducer from "redux-persist/es/persistReducer";
 
 const persistConfig: PersistConfig<any, any, any, any> = {
@@ -21,7 +21,7 @@ const rootReducer = combineSlices(catalogSlice, shoppingCartSlice);
 
 const persistentRootReducer = persistReducer(persistConfig, rootReducer);
 
-export type RootState = ReturnType<AppStore["getState"]>;
+export type RootState = ReturnType<typeof rootReducer>;
 
 export const makeStore = () => {
 	const store = configureStore({ reducer: persistentRootReducer });
@@ -30,18 +30,19 @@ export const makeStore = () => {
 
 	const persistor = persistStore(store);
 
-	return [store, persistor];
+	return { store, persistor };
 };
 
-export const [store, persistor] = makeStore();
+export const { store, persistor } = makeStore();
 
 export type AppStore = typeof store;
 
-export type AppDispatch = AppStore["dispatch"];
-
+export type AppDispatch = typeof store.dispatch & {
+	(action: PersistorAction): PersistorAction;
+};
 export type AppThunk<ThunkReturnType = void> = ThunkAction<
 	ThunkReturnType,
 	RootState,
 	unknown,
-	Action
+	Action<string> | PersistorAction
 >;
