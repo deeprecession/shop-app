@@ -1,0 +1,9 @@
+.product-page {
+  display: flex;
+  flex-flow: column;
+}
+
+.back-button {
+  width: 100%;
+  max-width: 10rem;
+}
