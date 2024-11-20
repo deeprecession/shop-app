@@ -15,7 +15,7 @@
 }
 
 .buy-button:hover {
-  background-color: var(--bg-hover-accent);
+  background-color: var(--bg-accent-hover);
   transform: translateY(-2px);
 }
 
