@@ -13,8 +13,8 @@
 .page-link {
   display: block;
   padding: 0.5rem 0.75rem;
-  color: #007bff;
-  border: 1px solid #dee2e6;
+  color: var(--text-accent);
+  border: 1px solid var(--border-light);
   border-radius: 0.25rem;
   text-decoration: none;
   transition:
@@ -24,18 +24,18 @@
 }
 
 .page-link:hover {
-  background-color: #f1f1f1;
-  color: #0056b3;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .pagination-control .active .page-link {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
+  background-color: var(--bg-accent);
+  color: var(--text-light);
+  border-color: var(--bg-accent);
 }
 
 .pagination-control .page-link[aria-disabled="true"] {
-  color: #6c757d;
+  color: var(--text-secondary);
   cursor: not-allowed;
 }
 

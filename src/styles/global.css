@@ -6,7 +6,7 @@
   max-width: 75rem;
   min-height: 100vh;
 
-  background-color: #f5f5f5;
+  background-color: var(--bg-primary);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -38,11 +38,11 @@ ul {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
   }
 
   a:hover {
-    color: #747bff;
+    color: var(--text-accent);
   }
 }

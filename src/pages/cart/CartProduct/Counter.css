@@ -15,8 +15,8 @@
 
 .counter-button {
 	display: inline-block;
-	background-color: var(--primary-color);
-	color: var(--text-color);
+	background-color: var(--bg-accent);
+	color: var(--text-light);
 	border: none;
 	border-radius: 4px;
 	padding: 0.4rem 0.8rem;
@@ -28,15 +28,15 @@
 }
 
 .counter-button:hover {
-	background-color: var(--primary-hover);
+	background-color: var(--bg-accent-hover);
 }
 
 .counter-button:active {
-	background-color: var(--primary-active);
+	background-color: var(--bg-accent-active);
 	transform: scale(0.95);
 }
 
 .counter-button:focus {
-	outline: 2px solid var(--primary-hover);
+	outline: 2px solid var(--bg-accent-active);
 	outline-offset: 2px;
 }

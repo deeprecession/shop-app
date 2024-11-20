@@ -1,24 +1,24 @@
 .navbar {
 	display: flex;
 	gap: 1rem;
-	background-color: #f8f9fa;
+	background-color: var(--bg-secondary);
 	padding: 1rem;
 	border-bottom: 1px solid #ddd;
 }
 
 .nav-link {
 	text-decoration: none;
-	color: #007bff;
+	color: var(--text-primary);
 	font-size: 1rem;
 	transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-	color: #0056b3;
+	color: var(--text-secondary);
 }
 
 .nav-link.active {
 	font-weight: bold;
-	color: #0056b3;
-	border-bottom: 2px solid #0056b3;
+	color: var(--text-accent);
+	border-bottom: 2px solid var(--border-dark);
 }

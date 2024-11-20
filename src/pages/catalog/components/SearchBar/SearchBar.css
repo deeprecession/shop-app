@@ -9,14 +9,14 @@
 .search-bar-container label {
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   cursor: pointer;
 }
 
 .search-bar-container input.search-bar {
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-light);
   border-radius: 4px;
   outline: none;
   transition:
@@ -25,11 +25,11 @@
 }
 
 .search-bar-container input.search-bar:focus {
-  border-color: #0078d7;
+  border-color: var(--border-dark);
   box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
 }
 
 .search-bar-container input.search-bar::placeholder {
-  color: #aaa;
+  color: var(--text-secondary);
   font-style: italic;
 }

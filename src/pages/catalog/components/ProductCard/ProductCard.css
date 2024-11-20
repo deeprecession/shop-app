@@ -7,7 +7,7 @@
   align-self: stretch;
   border-radius: 10px;
 
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   height: 18rem;
 
   padding: 0.5rem;
