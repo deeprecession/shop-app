@@ -10,7 +10,7 @@ import {
   isProductLiked,
   toggleLiked,
 } from "../../features/likedProducts/likedProductsSlice";
-import BuyButton from "../../components/BuyButton/BuyButton";
+import Button from "../../components/BuyButton/Button";
 import { addProduct } from "../../features/shoppingCart/shoppingCartSlice";
 
 export const Product = () => {
@@ -37,7 +37,7 @@ export const Product = () => {
       </div>
 
       <div className="product-buy-button">
-        <BuyButton onClick={onBuyClick} />
+        <Button onClick={onBuyClick} content="Add to chart" />
       </div>
 
       <div className="product-image">

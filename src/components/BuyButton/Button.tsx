@@ -1,24 +1,25 @@
-import "./BuyButton.css";
+import "./Button.css";
 
-type BuyButtonProps = {
+type ButtonProps = {
   onClick: () => void;
+  content: string;
 };
 
-const BuyButton = ({ onClick: addProductHandler }: BuyButtonProps) => {
+const Button = ({ onClick, content }: ButtonProps) => {
   return (
     <button
       onClick={(e) => {
         e.stopPropagation();
 
-        addProductHandler();
+        onClick();
 
         e.preventDefault();
       }}
       className="buy-button"
     >
-      Add to Cart
+      {content}
     </button>
   );
 };
 
-export default BuyButton;
+export default Button;

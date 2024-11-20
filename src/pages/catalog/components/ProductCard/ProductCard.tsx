@@ -12,7 +12,7 @@ import {
   isProductLiked,
   toggleLiked,
 } from "../../../../features/likedProducts/likedProductsSlice";
-import BuyButton from "../../../../components/BuyButton/BuyButton";
+import Button from "../../../../components/BuyButton/Button";
 
 interface ProductCardProps {
   product: ProductData;
@@ -53,7 +53,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
 
         <div className="buy-button-container">
-          <BuyButton onClick={addToChartHandler} />
+          <Button onClick={addToChartHandler} content="Add to chart" />
         </div>
       </article>
     </Link>
