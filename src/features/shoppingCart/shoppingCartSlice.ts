@@ -32,6 +32,9 @@ export const shoppingCartSlice = createSlice({
 				state,
 			).products;
 		},
+		removeAllProducts: (state) => {
+			state.products = {};
+		},
 	},
 
 	selectors: {
@@ -121,5 +124,9 @@ export const {
 	getCartTotalPrice,
 	getCartItemsCount,
 } = shoppingCartSlice.selectors;
-export const { removeWholeProduct, removeOneProduct, addProduct } =
-	shoppingCartSlice.actions;
+export const {
+	removeWholeProduct,
+	removeOneProduct,
+	removeAllProducts,
+	addProduct,
+} = shoppingCartSlice.actions;
