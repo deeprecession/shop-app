@@ -3,7 +3,16 @@
   padding-right: 2rem;
   padding-top: 1rem;
 
-  display: flex;
-  flex-flow: column;
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-rows: 4rem auto auto;
+
   row-gap: 3rem;
+  min-height: 100vh;
+}
+
+.layout>.footer {
+  align-self: flex-end;
 }
