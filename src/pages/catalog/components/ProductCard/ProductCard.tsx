@@ -13,6 +13,7 @@ import {
   toggleLiked,
 } from "../../../../features/likedProducts/likedProductsSlice";
 import Button from "../../../../components/BuyButton/Button";
+import { toast } from "react-toastify";
 
 interface ProductCardProps {
   product: ProductData;
@@ -31,6 +32,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   const addToChartHandler = () => {
+    toast("Successful added to cart", { type: "success" });
+
     dispatch(addProduct(product));
   };
 
