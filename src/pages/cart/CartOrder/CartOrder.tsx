@@ -29,7 +29,7 @@ const CartOrder = () => {
 			type: "success",
 		};
 
-		toast("Successful", toastConfig);
+		toast("Successful order", toastConfig);
 	};
 
 	return (
