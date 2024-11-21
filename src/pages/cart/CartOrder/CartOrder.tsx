@@ -38,7 +38,7 @@ const CartOrder = () => {
 			<div className="cart-order__total-price">
 				Total price:
 				<span> {getPriceString(totalPrice)}</span>
-				<Button content="Buy" onClick={onClick} />
+				<Button content="Buy" onClick={onClick} isDisabled={itemsCount == 0} />
 			</div>
 		</div>
 	);

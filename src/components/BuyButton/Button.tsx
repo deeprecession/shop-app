@@ -3,9 +3,10 @@ import "./Button.css";
 type ButtonProps = {
   onClick: () => void;
   content: string;
+  isDisabled?: boolean;
 };
 
-const Button = ({ onClick, content }: ButtonProps) => {
+const Button = ({ onClick, content, isDisabled = false }: ButtonProps) => {
   return (
     <button
       onClick={(e) => {
@@ -16,6 +17,7 @@ const Button = ({ onClick, content }: ButtonProps) => {
         e.preventDefault();
       }}
       className="buy-button"
+      disabled={isDisabled}
     >
       {content}
     </button>
