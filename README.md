@@ -2,6 +2,8 @@
 
 This project is a **shopping app** built as a frontend exercise to improve React development skills. It includes dynamic features like cart management, notifications, and responsive layouts
 
+![Description](./docs/shop-app.gif)
+
 ## 🛠️ Technologies used
 
 -  **Core Technologies:** HTML, CSS, React 18, TypeScript, Vite  
