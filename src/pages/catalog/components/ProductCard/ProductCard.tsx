@@ -8,12 +8,12 @@ import LikeButton from "../../../../components/LikeButton/LikeButton";
 import "./ProductCard.css";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
+import Button from "../../../../components/BuyButton/Button";
+import { toast } from "react-toastify";
 import {
   isProductLiked,
   toggleLiked,
-} from "../../../../features/likedProducts/likedProductsSlice";
-import Button from "../../../../components/BuyButton/Button";
-import { toast } from "react-toastify";
+} from "../../../../features/catalog/catalogSlice";
 
 interface ProductCardProps {
   product: ProductData;

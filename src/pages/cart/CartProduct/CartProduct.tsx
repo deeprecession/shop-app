@@ -14,7 +14,7 @@ import LikeButton from "../../../components/LikeButton/LikeButton";
 import {
   isProductLiked,
   toggleLiked,
-} from "../../../features/likedProducts/likedProductsSlice";
+} from "../../../features/catalog/catalogSlice";
 import GarbageSVG from "../../../components/GarbageSVG";
 
 interface ProductCardProps {

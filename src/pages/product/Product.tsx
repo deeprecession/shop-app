@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import {
   isProductLiked,
   toggleLiked,
-} from "../../features/likedProducts/likedProductsSlice";
+} from "../../features/catalog/catalogSlice";
 import Button from "../../components/BuyButton/Button";
 import { addProduct } from "../../features/shoppingCart/shoppingCartSlice";
 

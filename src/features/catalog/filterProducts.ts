@@ -1,12 +1,14 @@
-import { useAppSelector } from "../../hooks/reduxHooks";
 import { ProductData } from "../../pages/product/ProductData";
-import { isProductLiked } from "../likedProducts/likedProductsSlice";
 import { CatalogState } from "./catalogSlice";
 
 const filterProducts = (state: CatalogState): ProductData[] => {
 	let filteredProducts = filterByTitle(state.filterByTitle, state.allProducts);
 
-	filteredProducts = filterLiked(state.filterByLike, filteredProducts);
+	filteredProducts = filterLiked(
+		state.filterByLike,
+		filteredProducts,
+		state.likedProducts,
+	);
 
 	filteredProducts = filterByCategory(state.filterByCategory, filteredProducts);
 
@@ -36,13 +38,14 @@ const filterByTitle = (
 const filterLiked = (
 	toFilter: boolean,
 	products: ProductData[],
+	likedProducts: { [id: number]: undefined },
 ): ProductData[] => {
 	if (!toFilter) {
 		return products;
 	}
 
 	const filteredProducts = products.filter((product) => {
-		return useAppSelector((state) => isProductLiked(state, product.id));
+		return likedProducts[product.id] !== undefined;
 	});
 
 	return filteredProducts;

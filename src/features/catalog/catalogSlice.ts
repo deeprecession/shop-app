@@ -7,6 +7,8 @@ const emptyState: CatalogState = {
 	allProducts: [],
 	filteredProducts: [],
 
+	likedProducts: {},
+
 	filterByLike: false,
 	filterByTitle: "",
 	filterByCategory: "",
@@ -24,6 +26,8 @@ export const fetchProductsThunk = createAsyncThunk("productList", async () => {
 export interface CatalogState {
 	allProducts: ProductData[];
 	filteredProducts: ProductData[];
+
+	likedProducts: { [id: number]: boolean };
 
 	filterByLike: boolean;
 	filterByTitle: string;
@@ -60,6 +64,24 @@ export const catalogSlice = createSlice({
 
 			state.filteredProducts = filterProducts(state);
 		},
+
+		addLiked: (state, action: PayloadAction<number>) => {
+			state.likedProducts[action.payload] = true;
+		},
+
+		removeLiked: (state, action: PayloadAction<number>) => {
+			delete state.likedProducts[action.payload];
+		},
+
+		toggleLiked: (state, action: PayloadAction<number>) => {
+			const productId = action.payload;
+
+			if (productId in state.likedProducts) {
+				delete state.likedProducts[action.payload];
+			} else {
+				state.likedProducts[action.payload] = true;
+			}
+		},
 	},
 
 	selectors: {
@@ -67,6 +89,9 @@ export const catalogSlice = createSlice({
 		selectFilteredProducts: (state) => state.filteredProducts,
 		selectProductById: (state, productId: number): ProductData | undefined => {
 			return state.allProducts?.[productId];
+		},
+		isProductLiked: (state, id: number): boolean => {
+			return id in state.likedProducts;
 		},
 	},
 
@@ -94,7 +119,14 @@ export const {
 	setToFilterLiked,
 	setToFilterByTitle,
 	setAllProducts,
+	toggleLiked,
+	addLiked,
+	removeLiked,
 } = catalogSlice.actions;
 
-export const { selectAllProducts, selectFilteredProducts, selectProductById } =
-	catalogSlice.selectors;
+export const {
+	isProductLiked,
+	selectAllProducts,
+	selectFilteredProducts,
+	selectProductById,
+} = catalogSlice.selectors;
