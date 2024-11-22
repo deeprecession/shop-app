@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Shop-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **shopping app built** as a frontend exercise to improve React development skills. It includes dynamic features like cart management, notifications, and responsive layouts
 
-Currently, two official plugins are available:
+## What I've Done
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Core Features Implemented:
+   - `/catalog`: Dynamic product list with "Add to Cart" functionality.
+   - `/cart`: Cart Summary: Displays total item count and price.
+   - `/product/id`: Dynamic page for each product with information
+   - "Buy" button functionality with toast notifications.
+   - Responsive design with CSS grid layouts.
+2. State Management:
+   - Used Redux with selectors to handle the cart state efficiently.
+   - Dispatched actions for cart updates and cleanups.
+3. Component Design:
 
-## Expanding the ESLint configuration
+- Modular and reusable components like Button, Popup, and CartOrder.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## What new I've learned
 
-- Configure the top-level `parserOptions` property like this:
+- React:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  - Learned to create more generic components to reuse them later
+
+- Redux:
+
+  - Setting up a store and managing actions.
+  - Organize actions and selectors into feature slices
+  - Save state in localStore with `redux-persist`
+
+- CSS:
+  - How to use grid for creating adaptive components and pages
+  - How to use variables for theme consistency
+
+## How to run
+
+```bash
+git clone https://github.com/deeprecession/shop-app
+cd shop-app
+npm install
+npm start
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Possible Improvements
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [ ] Backend Integration: Add a server to fetch product data dynamically.
+- [ ] User Authentication: Allow users to save cart progress.
+- [ ] Payment Gateway: Simulate a payment flow for enhanced realism.
+- [ ] Animations: Improve user experience with smoother transitions.
+- [ ] Testing: Implement unit and integration tests for components.
