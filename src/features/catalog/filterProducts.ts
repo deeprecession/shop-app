@@ -38,14 +38,14 @@ const filterByTitle = (
 const filterLiked = (
 	toFilter: boolean,
 	products: ProductData[],
-	likedProducts: { [id: number]: undefined },
+	likedProducts: { [id: number]: boolean },
 ): ProductData[] => {
 	if (!toFilter) {
 		return products;
 	}
 
 	const filteredProducts = products.filter((product) => {
-		return likedProducts[product.id] !== undefined;
+		return likedProducts[product.id];
 	});
 
 	return filteredProducts;
