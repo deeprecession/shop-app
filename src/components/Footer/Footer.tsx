@@ -1,8 +1,8 @@
-import "./Footer.css";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       © 2024 Pet Project. Built with 💻 and ☕ by Vladislav Kishkovskiy
     </footer>
   );
