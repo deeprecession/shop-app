@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+import style from "./NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <nav className="navbar">
+    <nav className={style.navbar}>
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "nav-link active" : "nav-link"
+          isActive ? style.navLinkActive : style.navLinkInactive
         }
       >
         Home
@@ -15,7 +15,7 @@ const NavBar = () => {
       <NavLink
         to="/catalog"
         className={({ isActive }) =>
-          isActive ? "nav-link active" : "nav-link"
+          isActive ? style.navLinkActive : style.navLinkInactive
         }
       >
         Catalog
@@ -23,7 +23,7 @@ const NavBar = () => {
       <NavLink
         to="/cart"
         className={({ isActive }) =>
-          isActive ? "nav-link active" : "nav-link"
+          isActive ? style.navLinkActive : style.navLinkInactive
         }
       >
         Cart
