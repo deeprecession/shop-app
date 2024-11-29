@@ -1,4 +1,4 @@
-import "./Button.css";
+import styles from "./Button.module.css";
 
 type ButtonProps = {
   onClick: () => void;
@@ -16,7 +16,7 @@ const Button = ({ onClick, content, isDisabled = false }: ButtonProps) => {
 
         e.preventDefault();
       }}
-      className="buy-button"
+      className={styles.button}
       disabled={isDisabled}
     >
       {content}
