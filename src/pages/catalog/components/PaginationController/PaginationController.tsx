@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import "./PaginationController.css";
+import styles from "./PaginationController.module.css";
 import { useAppSelector } from "../../../../hooks/reduxHooks";
 import { ProductList } from "../ProductList/ProductList";
 import { selectFilteredProducts } from "../../../../features/catalog/catalogSlice";
@@ -27,11 +27,11 @@ const PaginatedProductList = ({ itemsPerPage }: PaginationControlsProps) => {
 	};
 
 	return (
-		<div className="paginated-product-list">
+		<div className={styles.paginatedProductList}>
 			<ProductList products={currentItems} />
 
 			<ReactPaginate
-				className="pagination-control"
+				className={styles.paginationControl}
 				breakLabel="..."
 				nextLabel=">"
 				previousLabel="<"
@@ -39,16 +39,16 @@ const PaginatedProductList = ({ itemsPerPage }: PaginationControlsProps) => {
 				pageRangeDisplayed={3}
 				pageCount={pageCount}
 				renderOnZeroPageCount={null}
-				pageClassName="page-item"
-				pageLinkClassName="page-link"
-				previousClassName="page-item"
-				previousLinkClassName="page-link"
-				nextClassName="page-item"
-				nextLinkClassName="page-link"
-				breakClassName="page-item"
-				breakLinkClassName="page-link"
-				containerClassName="pagination"
-				activeClassName="active"
+				pageClassName={styles.pageItem}
+				pageLinkClassName={styles.pageLink}
+				previousClassName={styles.pageItem}
+				previousLinkClassName={styles.pageLink}
+				nextClassName={styles.pageItem}
+				nextLinkClassName={styles.pageLink}
+				breakClassName={styles.pageItem}
+				breakLinkClassName={styles.pageLink}
+				containerClassName={styles.pagination}
+				activeClassName={styles.active}
 			/>
 		</div>
 	);

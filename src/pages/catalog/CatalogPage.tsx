@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../../hooks/reduxHooks";
-import "./CatalogPage.css";
+import style from "./CatalogPage.module.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
 import LikeFilterCheckbox from "./components/LikeFilter/LikeFilter";
@@ -15,11 +15,19 @@ const CatalogPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="product-list-page">
-      <div className="filter-panel">
-        <SearchBar />
-        <CategoryFilter />
-        <LikeFilterCheckbox />
+    <div className={style.page}>
+      <div className={style.filterPanel}>
+        <div className={style.searchBar}>
+          <SearchBar />
+        </div>
+
+        <div className={style.selectCategory}>
+          <CategoryFilter />
+        </div>
+
+        <div className={style.likeFilter}>
+          <LikeFilterCheckbox />
+        </div>
       </div>
 
       <PaginatedProductList itemsPerPage={15} />

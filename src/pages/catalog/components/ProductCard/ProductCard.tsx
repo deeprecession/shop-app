@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import "./ProductCard.css";
+import style from "./ProductCard.module.css";
 
 import { ProductData } from "../../../product/ProductData";
 import { getPriceString } from "../../../../utils/getPriceString";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
-import "./ProductCard.css";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
 import Button from "../../../../components/BuyButton/Button";
@@ -38,24 +37,27 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <Link className="product-link" to={`/products/${product.id.toString()}`}>
-      <article className="product-card">
-        <div className="product-card__image">
+    <Link className={style.link} to={`/products/${product.id.toString()}`}>
+      <article className={style.product}>
+        <div className={style.image}>
           <img loading="lazy" src={product.images[0]} alt={product.title}></img>
         </div>
 
-        <div className="product-card__price">{priceStr}</div>
+        <div className={style.price}>{priceStr}</div>
 
-        <div className="product-card__title">{product.title}</div>
+        <div className={style.title}>{product.title}</div>
 
-        <div className="product-card__rating">
+        <div className={style.rating}>
           {product.rating.toFixed(1)}
-          <StarSVG />
+
+          <div className={style.star}>
+            <StarSVG />
+          </div>
         </div>
 
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
 
-        <div className="buy-button-container">
+        <div className={style.buyBtn}>
           <Button onClick={addToChartHandler} content="Add to chart" />
         </div>
       </article>

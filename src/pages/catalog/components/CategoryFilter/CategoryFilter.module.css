@@ -1,18 +1,18 @@
-.category-filter-container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 200px;
 }
 
-.category-filter-container label {
+.container label {
   font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
 }
 
-.category-filter-container select {
+.container select {
   padding: 8px;
   font-size: 14px;
   border: 1px solid var(--border-light);
@@ -21,6 +21,6 @@
   transition: border-color 0.3s ease;
 }
 
-.category-filter-container select option {
+.container select option {
   padding: 8px;
 }

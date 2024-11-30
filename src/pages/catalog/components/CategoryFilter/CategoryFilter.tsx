@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import "./CategoryFilter.css";
+import style from "./CategoryFilter.module.css";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { ProductData } from "../../../product/ProductData";
 import {
@@ -21,7 +21,7 @@ const CategoryFilter = () => {
 	};
 
 	return (
-		<div className="category-filter-container">
+		<div className={style.container}>
 			<label htmlFor="categoryFilter">Category</label>
 			<select id="categoryFilter" onChange={onChange} defaultValue="">
 				<option value="">none</option>

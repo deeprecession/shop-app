@@ -1,4 +1,15 @@
-.pagination-control {
+.paginatedProductList {
+  display: flex;
+  flex-flow: column;
+  row-gap: 5rem;
+
+  justify-content: space-between;
+  align-content: center;
+
+  width: 100%;
+}
+
+.paginationControl {
   display: flex;
   justify-content: center;
   list-style: none;
@@ -6,11 +17,21 @@
   margin: 1rem 0;
 }
 
-.page-item {
+.pageItem {
   margin: 0 5px;
 }
 
-.page-link {
+.productListPaginationLinks {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+.productListPaginationLinks Link {
+  color: black;
+}
+
+.pageLink {
   display: block;
   padding: 0.5rem 0.75rem;
   color: var(--text-accent);
@@ -23,49 +44,49 @@
   cursor: pointer;
 }
 
-.page-link:hover {
+.pageLink:hover {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
 }
 
-.pagination-control .active .page-link {
+.active .pageLink {
   background-color: var(--bg-accent);
   color: var(--text-light);
   border-color: var(--bg-accent);
 }
 
-.pagination-control .page-link[aria-disabled="true"] {
+.pageLink[aria-disabled="true"] {
   color: var(--text-secondary);
   cursor: not-allowed;
 }
 
-.pagination-control .page-item:first-child .page-link,
-.pagination-control .page-item:last-child .page-link {
+.pageItem:first-child .pageLink,
+.pageItem:last-child .pageLink {
   border-radius: 0.25rem;
 }
 
-.pagination-control .page-item.previous .page-link,
-.pagination-control .page-item.next .page-link {
+.previous .pageLink,
+.next .pageLink {
   font-weight: bold;
 }
 
 @media (max-width: 600px) {
-  .pagination-control {
+  .paginationControl {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  .page-link {
+  .pageLink {
     padding: 0.4rem 0.6rem;
     font-size: 0.85rem;
   }
 
-  .page-item {
+  .pageItem {
     margin: 0 3px;
   }
 
-  .page-item.previous .page-link,
-  .page-item.next .page-link {
+  .previous .pageLink,
+  .next .pageLink {
     font-size: 1rem;
   }
 }
