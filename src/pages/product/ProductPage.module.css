@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  align-items: center;
+
+  gap: 2rem;
+  flex-direction: column;
+
+  padding-top: 2rem;
+}
+
+.backBtn {
+  width: 100%;
+  max-width: 10rem;
+}

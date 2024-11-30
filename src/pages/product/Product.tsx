@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { productLoader } from "./productLoader";
 import { LoaderData } from "../../utils/LoaderData";
-import "./Product.css";
+import style from "./Product.module.css";
 import StarSVG from "../../components/StarSVG";
 import { getPriceString } from "../../utils/getPriceString";
 import LikeButton from "../../components/LikeButton/LikeButton";
@@ -31,31 +31,31 @@ export const Product = () => {
   const priceStr = getPriceString(product.price);
 
   return (
-    <article className="product">
-      <div className="product-like-button">
+    <article className={style.container}>
+      <div className={style.likeBtn}>
         <LikeButton clickHandler={onLikeClick} isLiked={isLiked} />
       </div>
 
-      <div className="product-buy-button">
+      <div className={style.buyBtn}>
         <Button onClick={onBuyClick} content="Add to chart" />
       </div>
 
-      <div className="product-image">
+      <div className={style.image}>
         <img src={product.images[0]} />
       </div>
 
-      <div className="product-title">{product.title}</div>
+      <div className={style.title}>{product.title}</div>
 
-      <div className="product-category">({product.category})</div>
+      <div className={style.category}>({product.category})</div>
 
-      <div className="product-price">{priceStr}</div>
+      <div className={style.price}>{priceStr}</div>
 
-      <div className="product-rating">
+      <div className={style.rating}>
         {product.rating.toFixed(1)}
         <StarSVG />
       </div>
 
-      <div className="product-description">{product.description}</div>
+      <div className={style.description}>{product.description}</div>
     </article>
   );
 };
