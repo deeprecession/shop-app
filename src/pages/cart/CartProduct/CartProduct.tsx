@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./CartProduct.css";
+import style from "./CartProduct.module.css";
 import { getPriceString } from "../../../utils/getPriceString";
 import {
   addProduct,
@@ -41,18 +41,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
 
   return (
-    <article className="cart-product">
-      <div className="cart-product__image">
+    <article className={style.container}>
+      <div className={style.image}>
         <img loading="lazy" src={product.images[0]} alt={product.title}></img>
       </div>
 
-      <div className="cart-product__price">{priceStr}</div>
+      <div className={style.price}>{priceStr}</div>
 
-      <Link to={`/products/${product.id}`} className="cart-product__title">
+      <Link to={`/products/${product.id}`} className={style.title}>
         {product.title}
       </Link>
 
-      <div className="cart-product__count">
+      <div className={style.count}>
         <Counter
           incHandler={() => {
             dispatch(addProduct(product));
@@ -66,12 +66,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       <div
         onClick={() => dispatch(removeWholeProduct(product))}
-        className="cart-product__remove-button"
+        className={style.removeBtn}
       >
         <GarbageSVG />
       </div>
 
-      <div className="cart-product__like-button">
+      <div className={style.likeBtn}>
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
       </div>
     </article>

@@ -1,11 +1,11 @@
-.counter-container {
+.container {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 	gap: 1rem;
 }
 
-.counter-value {
+.value {
 	display: inline-block;
 	font-size: 1.4rem;
 	font-weight: bold;
@@ -13,7 +13,7 @@
 	min-width: 2rem;
 }
 
-.counter-button {
+.button {
 	display: inline-block;
 	background-color: var(--bg-accent);
 	color: var(--text-light);
@@ -27,16 +27,16 @@
 		transform 0.2s ease;
 }
 
-.counter-button:hover {
+.button:hover {
 	background-color: var(--bg-accent-hover);
 }
 
-.counter-button:active {
+.button:active {
 	background-color: var(--bg-accent-active);
 	transform: scale(0.95);
 }
 
-.counter-button:focus {
+.button:focus {
 	outline: 2px solid var(--bg-accent-active);
 	outline-offset: 2px;
 }

@@ -1,4 +1,4 @@
-import "./Counter.css";
+import style from "./Counter.module.css";
 
 type CounterProps = {
   defaultValue: number;
@@ -12,9 +12,9 @@ const Counter = ({
   decHandler: decHanlder,
 }: CounterProps) => {
   return (
-    <div className="counter-container">
+    <div className={style.container}>
       <button
-        className="counter-button"
+        className={style.button}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -24,9 +24,9 @@ const Counter = ({
       >
         -
       </button>
-      <h3 className="counter-value">{defaultValue}</h3>
+      <h3 className={style.value}>{defaultValue}</h3>
       <button
-        className="counter-button"
+        className={style.button}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();

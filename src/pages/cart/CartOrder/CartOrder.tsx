@@ -7,7 +7,7 @@ import {
 } from "../../../features/shoppingCart/shoppingCartSlice";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { getPriceString } from "../../../utils/getPriceString";
-import "./CartOrder.css";
+import style from "./CartOrder.module.css";
 
 const CartOrder = () => {
 	const itemsCount = useAppSelector(getCartItemsCount);
@@ -33,9 +33,9 @@ const CartOrder = () => {
 	};
 
 	return (
-		<div className="cart-order">
-			<div className="cart-order__count">Items: {itemsCount}</div>
-			<div className="cart-order__total-price">
+		<div className={style.order}>
+			<div className={style.count}>Items: {itemsCount}</div>
+			<div className={style.price}>
 				Total price:
 				<span> {getPriceString(totalPrice)}</span>
 				<Button content="Buy" onClick={onClick} isDisabled={itemsCount == 0} />
