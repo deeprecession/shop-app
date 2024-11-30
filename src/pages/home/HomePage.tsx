@@ -1,8 +1,8 @@
-import "./HomePage.css";
+import style from "./HomePage.module.css";
 
 const Home = () => {
   return (
-    <div className="home-page">
+    <div className={style.page}>
       <h1>Home</h1>
 
       <h2>Stack</h2>
