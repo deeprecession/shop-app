@@ -6,22 +6,29 @@ import { getPriceString } from "../../../../utils/getPriceString";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
 import { useAppSelector } from "../../../../hooks/reduxHooks";
+import { getProductCount } from "../../../../features/shoppingCart/shoppingCartSlice";
 import Button from "../../../../components/BuyButton/Button";
 import { isProductLiked } from "../../../../features/catalog/catalogSlice";
+import Counter from "../../../../components/Counter/Counter";
 
 interface ProductCardProps {
   product: ProductData;
   toggleLikeHandler: () => void;
   addToCartHandler: () => void;
+  removeFromCartHandler: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
   toggleLikeHandler,
   addToCartHandler,
+  removeFromCartHandler,
 }: ProductCardProps) => {
   const isLiked = useAppSelector((state) => isProductLiked(state, product.id));
   const priceStr = getPriceString(product.price);
+  const productCount = useAppSelector((state) =>
+    getProductCount(state, product.id),
+  );
 
   return (
     <Link className={style.link} to={`/products/${product.id.toString()}`}>
@@ -45,7 +52,19 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <LikeButton isLiked={isLiked} clickHandler={toggleLikeHandler} />
 
         <div className={style.buyBtn}>
-          <Button onClick={addToCartHandler} content="Add to chart" />
+          {productCount > 0 ? (
+            <Counter
+              incHandler={() => {
+                addToCartHandler();
+              }}
+              decHandler={() => {
+                removeFromCartHandler();
+              }}
+              defaultValue={productCount}
+            />
+          ) : (
+            <Button onClick={addToCartHandler} content="Add to chart" />
+          )}
         </div>
       </article>
     </Link>
