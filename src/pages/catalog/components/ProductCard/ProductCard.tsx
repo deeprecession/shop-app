@@ -5,36 +5,23 @@ import { ProductData } from "../../../product/ProductData";
 import { getPriceString } from "../../../../utils/getPriceString";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
-import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
+import { useAppSelector } from "../../../../hooks/reduxHooks";
 import Button from "../../../../components/BuyButton/Button";
-import { toast } from "react-toastify";
-import {
-  isProductLiked,
-  toggleLiked,
-} from "../../../../features/catalog/catalogSlice";
+import { isProductLiked } from "../../../../features/catalog/catalogSlice";
 
 interface ProductCardProps {
   product: ProductData;
+  toggleLikeHandler: () => void;
+  addToCartHandler: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
+  toggleLikeHandler,
+  addToCartHandler,
 }: ProductCardProps) => {
   const isLiked = useAppSelector((state) => isProductLiked(state, product.id));
   const priceStr = getPriceString(product.price);
-
-  const dispatch = useAppDispatch();
-
-  const likeClickHandler = () => {
-    dispatch(toggleLiked(product.id));
-  };
-
-  const addToChartHandler = () => {
-    toast("Successful added to cart", { type: "success" });
-
-    dispatch(addProduct(product));
-  };
 
   return (
     <Link className={style.link} to={`/products/${product.id.toString()}`}>
@@ -55,10 +42,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
 
-        <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
+        <LikeButton isLiked={isLiked} clickHandler={toggleLikeHandler} />
 
         <div className={style.buyBtn}>
-          <Button onClick={addToChartHandler} content="Add to chart" />
+          <Button onClick={addToCartHandler} content="Add to chart" />
         </div>
       </article>
     </Link>
