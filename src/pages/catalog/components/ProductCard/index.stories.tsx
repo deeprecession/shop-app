@@ -4,6 +4,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { store } from "../../../../store";
+import { fn } from "@storybook/test";
 
 type StoryProps = ComponentProps<typeof ProductCard>;
 
@@ -38,5 +39,7 @@ export const Primary: Story = {
 				"https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png",
 			],
 		},
+		addToCartHandler: fn(),
+		toggleLikeHandler: fn(),
 	},
 };
