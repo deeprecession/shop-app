@@ -1,31 +1,31 @@
 .navbar {
-	display: flex;
-	gap: 1rem;
-	background-color: var(--bg-secondary);
-	padding: 1rem;
-	border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 1rem;
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
 .navLink {
-	text-decoration: none;
-	transition: color 0.3s ease;
-	font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
 }
 
 .navLink:hover {
-	color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 .navLinkInactive {
-	composes: navLink;
+  composes: navLink;
 
-	color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .navLinkActive {
-	composes: navLink;
+  composes: navLink;
 
-	font-weight: bold;
-	color: var(--text-accent);
-	border-bottom: 2px solid var(--border-dark);
+  font-weight: bold;
+  color: var(--text-accent);
+  border-bottom: 2px solid var(--border-dark);
 }

@@ -1,19 +1,19 @@
 .page {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	padding-top: 5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-top: 5rem;
 
-	gap: 1rem;
+  gap: 1rem;
 }
 
 .cartContainer {
-	width: 100%;
+  width: 100%;
 
-	display: flex;
-	flex-flow: column;
+  display: flex;
+  flex-flow: column;
 
-	justify-items: center;
-	align-items: center;
+  justify-items: center;
+  align-items: center;
 
-	gap: 2rem;
+  gap: 2rem;
 }

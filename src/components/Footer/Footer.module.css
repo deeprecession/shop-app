@@ -1,9 +1,9 @@
 .footer {
-	width: 100%;
-	height: 10rem;
+  width: 100%;
+  height: 10rem;
 
-	align-content: center;
-	justify-content: center;
+  align-content: center;
+  justify-content: center;
 
-	background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary);
 }

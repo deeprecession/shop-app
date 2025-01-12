@@ -9,16 +9,16 @@ import { fn } from "@storybook/test";
 type StoryProps = ComponentProps<typeof ProductCard>;
 
 const meta: Meta<StoryProps> = {
-	component: ProductCard,
-	decorators: [
-		(Story) => (
-			<Provider store={store}>
-				<BrowserRouter>
-					<Story />
-				</BrowserRouter>
-			</Provider>
-		),
-	],
+  component: ProductCard,
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
+      </Provider>
+    ),
+  ],
 };
 
 export default meta;
@@ -26,52 +26,52 @@ export default meta;
 type Story = StoryObj<StoryProps>;
 
 export const Primary: Story = {
-	args: {
-		product: {
-			id: 1,
-			category: "Beauty",
-			description: "Essence Mascara Lash Princess",
-			isLiked: true,
-			price: 12.99,
-			rating: 4.2,
-			title: "Essence Mascara",
-			images: ["https://via.placeholder.com/150"],
-		},
-		addToCartHandler: fn(),
-		toggleLikeHandler: fn(),
-	},
+  args: {
+    product: {
+      id: 1,
+      category: "Beauty",
+      description: "Essence Mascara Lash Princess",
+      isLiked: true,
+      price: 12.99,
+      rating: 4.2,
+      title: "Essence Mascara",
+      images: ["https://via.placeholder.com/150"],
+    },
+    addToCartHandler: fn(),
+    toggleLikeHandler: fn(),
+  },
 };
 
 export const Discounted: Story = {
-	args: {
-		product: {
-			id: 2,
-			category: "Electronics",
-			description: "Latest smartphone with advanced features.",
-			isLiked: false,
-			price: 899.99,
-			rating: 4.8,
-			title: "Smartphone Pro",
-			images: ["https://via.placeholder.com/150"],
-		},
-		addToCartHandler: fn(),
-		toggleLikeHandler: fn(),
-	},
+  args: {
+    product: {
+      id: 2,
+      category: "Electronics",
+      description: "Latest smartphone with advanced features.",
+      isLiked: false,
+      price: 899.99,
+      rating: 4.8,
+      title: "Smartphone Pro",
+      images: ["https://via.placeholder.com/150"],
+    },
+    addToCartHandler: fn(),
+    toggleLikeHandler: fn(),
+  },
 };
 
 export const OutOfStock: Story = {
-	args: {
-		product: {
-			id: 3,
-			category: "Toys",
-			description: "Educational toy for kids aged 5-10 years.",
-			isLiked: false,
-			price: 29.99,
-			rating: 4.0,
-			title: "Kids Educational Toy",
-			images: ["https://via.placeholder.com/150"],
-		},
-		addToCartHandler: fn(),
-		toggleLikeHandler: fn(),
-	},
+  args: {
+    product: {
+      id: 3,
+      category: "Toys",
+      description: "Educational toy for kids aged 5-10 years.",
+      isLiked: false,
+      price: 29.99,
+      rating: 4.0,
+      title: "Kids Educational Toy",
+      images: ["https://via.placeholder.com/150"],
+    },
+    addToCartHandler: fn(),
+    toggleLikeHandler: fn(),
+  },
 };
