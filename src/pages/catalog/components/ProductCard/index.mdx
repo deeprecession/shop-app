@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import * as ProductCardStories from "./index.stories.tsx";
+
+<Meta of={ProductCardStories} />
+
+# ProductCard Component
+
+The `ProductCard` component displays information about a product, such as its image, price, title, and rating. It also provides functionalities like adding the product to the cart and toggling its "liked" status.
+
+---
+
+## Basic Usage
+
+The `ProductCard` component can be used in various scenarios, such as e-commerce or product catalog applications. Here's an example of the component:
+
+<Canvas of={ProductCardStories.Primary} />
+
+---
+
+## Examples
+
+### Discounted Product
+
+Use the `Discounted` story to display a product with a special offer:
+
+<Canvas of={ProductCardStories.Discounted} />
+
+### Out of Stock
+
+Use the `OutOfStock` story to showcase a product that is currently unavailable:
+
+<Canvas of={ProductCardStories.OutOfStock} />
+
