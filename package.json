@@ -16,7 +16,9 @@
     "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_b119cba26ad5a2c"
+    "chromatic": "npx chromatic --project-token=chpt_b119cba26ad5a2c",
+    "prepare": "husky",
+    "test": "echo 'there are no tests'"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
@@ -51,6 +53,7 @@
     "eslint-plugin-storybook": "^0.11.2",
     "gh-pages": "^6.2.0",
     "globals": "^15.11.0",
+    "husky": "^9.1.7",
     "prettier": "3.4.2",
     "prettier-eslint": "^16.3.0",
     "storybook": "^8.4.7",
