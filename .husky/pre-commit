@@ -3,4 +3,5 @@
 pnpm run lint
 pnpm run test
 pnpm run prettier:fix
+pnpm run stylelint:fix
 
