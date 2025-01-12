@@ -5,18 +5,18 @@ import { useAppSelector } from "../../hooks/reduxHooks";
 import CartOrder from "./CartOrder/CartOrder";
 
 const CartPage = () => {
-	const products = useAppSelector(getAllProducts);
+  const products = useAppSelector(getAllProducts);
 
-	return (
-		<div className={style.page}>
-			<div className={style.cartContainer}>
-				{products.map((product, id) => (
-					<ProductCard key={id} cardProduct={product} />
-				))}
-			</div>
-			<CartOrder />
-		</div>
-	);
+  return (
+    <div className={style.page}>
+      <div className={style.cartContainer}>
+        {products.map((product, id) => (
+          <ProductCard key={id} cardProduct={product} />
+        ))}
+      </div>
+      <CartOrder />
+    </div>
+  );
 };
 
 export default CartPage;

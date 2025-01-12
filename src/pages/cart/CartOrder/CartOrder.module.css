@@ -1,17 +1,17 @@
 .order {
-	display: flex;
-	flex-flow: column;
+  display: flex;
+  flex-flow: column;
 }
 
 .price {
-	font-size: 1.5rem;
-	font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .price span {
-	color: red;
+  color: red;
 }
 
 .count {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
