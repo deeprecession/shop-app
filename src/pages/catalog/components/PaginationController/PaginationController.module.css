@@ -60,14 +60,14 @@
   cursor: not-allowed;
 }
 
-.pageItem:first-child .pageLink,
-.pageItem:last-child .pageLink {
-  border-radius: 0.25rem;
-}
-
 .previous .pageLink,
 .next .pageLink {
   font-weight: bold;
+}
+
+.pageItem:first-child .pageLink,
+.pageItem:last-child .pageLink {
+  border-radius: 0.25rem;
 }
 
 @media (max-width: 600px) {

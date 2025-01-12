@@ -10,7 +10,12 @@
 
   cursor: pointer;
 
-  transition: fill 0.2s ease;
+  path {
+    stroke: black;
+    transition:
+      fill 0.3s ease,
+      stroke 0.3s ease;
+  }
 }
 
 .like:hover {
@@ -22,12 +27,6 @@
 
   path {
     fill: white;
-    stroke: black;
-  }
-
-  &:hover path {
-    fill: #e57373;
-    stroke: black;
   }
 }
 
@@ -38,9 +37,12 @@
     fill: #e57373;
     stroke: none;
   }
+}
 
-  &:hover path {
-    fill: #e57373;
-    stroke: black;
-  }
+.notLiked:hover path {
+  fill: #e57373;
+}
+
+.liked:hover path {
+  fill: #e57373;
 }

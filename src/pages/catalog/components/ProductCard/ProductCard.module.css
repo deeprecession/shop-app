@@ -45,12 +45,6 @@
   white-space: nowrap;
 }
 
-.rating {
-  color: black;
-  font-size: 0.9rem;
-  grid-area: 6 / 4 / 7 / 6;
-}
-
 .title,
 .rating,
 .price {
@@ -59,6 +53,10 @@
 }
 
 .rating {
+  color: black;
+  font-size: 0.9rem;
+  grid-area: 6 / 4 / 7 / 6;
+
   flex-flow: row;
   align-items: baseline;
   gap: 0.1rem;
