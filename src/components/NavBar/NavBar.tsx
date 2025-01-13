@@ -30,7 +30,9 @@ const NavBar = () => {
         Cart
       </NavLink>
 
-      <DarkModeToggle />
+      <div className={style.themeToggleWrapper}>
+        <DarkModeToggle />
+      </div>
     </nav>
   );
 };
