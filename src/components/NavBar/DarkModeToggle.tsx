@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
+import style from "./DarkModeToggle.module.css";
 import { useMediaQuery } from "react-responsive";
 
 export const DarkModeToggle = () => {
@@ -23,11 +24,15 @@ export const DarkModeToggle = () => {
   }, [isDark]);
 
   return (
-    <Toggle
-      checked={isDark}
-      onChange={({ target }) => setIsDark(target.checked)}
-      icons={{ checked: "", unchecked: "" }}
-      aria-label="Dark mode toggle"
-    />
+    <div className={style.themeToggleWrapper}>
+      <label htmlFor="theme-toggle"> Toggle Theme</label>
+      <Toggle
+        id="theme-toggle"
+        checked={isDark}
+        onChange={({ target }) => setIsDark(target.checked)}
+        icons={{ checked: "", unchecked: "" }}
+        aria-label="Dark mode toggle"
+      />
+    </div>
   );
 };
