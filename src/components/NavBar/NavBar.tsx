@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import style from "./NavBar.module.css";
+import { DarkModeToggle } from "./DarkModeToggle";
 
 const NavBar = () => {
   return (
@@ -28,6 +29,8 @@ const NavBar = () => {
       >
         Cart
       </NavLink>
+
+      <DarkModeToggle />
     </nav>
   );
 };

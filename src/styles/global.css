@@ -64,3 +64,34 @@ button:hover {
 button:active {
   background-color: var(--bg-accent-active);
 }
+
+/* Default styles for light theme */
+input,
+textarea,
+select {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--bg-accent);
+  box-shadow: 0 0 0 1px var(--bg-accent-hover);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+select::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-secondary);
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-accent-hover);
+}
