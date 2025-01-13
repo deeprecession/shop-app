@@ -31,4 +31,5 @@ export default tseslint.config({
     ],
     "prettier/prettier": ["error"],
   },
+  ignores: ["node_modules/", "dist/", "storybook-static/"],
 });
