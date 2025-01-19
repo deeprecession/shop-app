@@ -36,6 +36,8 @@
 }
 
 .title {
+  color: var(--text-primary);
+
   font-size: 0.8rem;
 
   grid-area: 7 / 1 / 8 / 6;
