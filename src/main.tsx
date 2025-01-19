@@ -9,12 +9,15 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-    <ToastContainer />
+    <ThemeProvider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+      <ToastContainer />
+    </ThemeProvider>
   </StrictMode>,
 );
