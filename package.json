@@ -18,7 +18,7 @@
     "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_b119cba26ad5a2c",
+    "chromatic": "npx chromatic",
     "prepare": "husky",
     "test": "echo 'there are no tests'"
   },
