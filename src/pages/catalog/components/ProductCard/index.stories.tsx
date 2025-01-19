@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { store } from "../../../../store";
 import { fn } from "@storybook/test";
+import { ThemeContext } from "../../../../contexts/ThemeContext";
+import { useDarkMode } from "storybook-dark-mode";
 
 type StoryProps = ComponentProps<typeof ProductCard>;
 
@@ -12,11 +14,13 @@ const meta: Meta<StoryProps> = {
   component: ProductCard,
   decorators: [
     (Story) => (
-      <Provider store={store}>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
-      </Provider>
+      <ThemeContext.Provider value={{ isDarkTheme: useDarkMode() }}>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Story />
+          </BrowserRouter>
+        </Provider>
+      </ThemeContext.Provider>
     ),
   ],
 };

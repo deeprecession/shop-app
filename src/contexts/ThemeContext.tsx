@@ -3,10 +3,10 @@ import { useMediaQuery } from "react-responsive";
 
 type ThemeContextType = {
   isDarkTheme: boolean;
-  setTheme: (theme: boolean) => void;
+  setTheme?: (theme: boolean) => void;
 };
 
-const ThemeContext = createContext<ThemeContextType>({
+export const ThemeContext = createContext<ThemeContextType>({
   isDarkTheme: false,
   setTheme: () => {},
 });
