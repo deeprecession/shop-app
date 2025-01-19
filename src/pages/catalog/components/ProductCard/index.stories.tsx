@@ -13,15 +13,27 @@ type StoryProps = ComponentProps<typeof ProductCard>;
 const meta: Meta<StoryProps> = {
   component: ProductCard,
   decorators: [
-    (Story) => (
-      <ThemeContext.Provider value={{ isDarkTheme: useDarkMode() }}>
-        <Provider store={store}>
-          <BrowserRouter>
-            <Story />
-          </BrowserRouter>
-        </Provider>
-      </ThemeContext.Provider>
-    ),
+    (Story) => {
+      const isDarkTheme = useDarkMode();
+
+      if (isDarkTheme) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+
+      return (
+        <ThemeContext.Provider
+          value={{ isDarkTheme: true, setTheme: () => {} }}
+        >
+          <Provider store={store}>
+            <BrowserRouter>
+              <Story />
+            </BrowserRouter>
+          </Provider>
+        </ThemeContext.Provider>
+      );
+    },
   ],
 };
 
