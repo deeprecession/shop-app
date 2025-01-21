@@ -1,14 +1,24 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useRef } from "react";
 import style from "./CategoryFilter.module.css";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { ProductData } from "../../../product/ProductData";
 import {
   selectAllProducts,
+  selectCategoryFilter,
   setToFilterByCategory,
 } from "../../../../features/catalog/catalogSlice";
 
 const CategoryFilter = () => {
   const dispatch = useAppDispatch();
+
+  const storedCategoryFilter = useAppSelector(selectCategoryFilter);
+  const selectRef = useRef<HTMLSelectElement>(null);
+
+  useEffect(() => {
+    if (selectRef.current) {
+      selectRef.current.value = storedCategoryFilter;
+    }
+  }, []);
 
   const products = useAppSelector(selectAllProducts);
 
@@ -23,7 +33,7 @@ const CategoryFilter = () => {
   return (
     <div className={style.container}>
       <label htmlFor="categoryFilter">Category</label>
-      <select id="categoryFilter" onChange={onChange} defaultValue="">
+      <select id="categoryFilter" ref={selectRef} onChange={onChange}>
         <option value="">none</option>
         {categories.map((categoryName, inx) => (
           <option key={inx} value={categoryName}>
