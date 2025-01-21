@@ -108,7 +108,7 @@ export const catalogSlice = createSlice({
         state.status = "idle";
 
         state.allProducts = action.payload;
-        state.filteredProducts = action.payload;
+        state.filteredProducts = filterProducts(state);
       })
       .addCase(fetchProductsThunk.rejected, (state, action) => {
         state.status = "failed";
