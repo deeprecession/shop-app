@@ -93,6 +93,9 @@ export const catalogSlice = createSlice({
     isProductLiked: (state, id: number): boolean => {
       return id in state.likedProducts;
     },
+    selectTitleFilter: (state) => state.filterByTitle,
+    selectCategoryFilter: (state) => state.filterByCategory,
+    selectLikedFilter: (state) => state.filterByLike,
   },
 
   extraReducers: (builder) => {
@@ -105,7 +108,7 @@ export const catalogSlice = createSlice({
         state.status = "idle";
 
         state.allProducts = action.payload;
-        state.filteredProducts = action.payload;
+        state.filteredProducts = filterProducts(state);
       })
       .addCase(fetchProductsThunk.rejected, (state, action) => {
         state.status = "failed";
@@ -129,4 +132,7 @@ export const {
   selectAllProducts,
   selectFilteredProducts,
   selectProductById,
+  selectTitleFilter,
+  selectCategoryFilter,
+  selectLikedFilter,
 } = catalogSlice.selectors;
