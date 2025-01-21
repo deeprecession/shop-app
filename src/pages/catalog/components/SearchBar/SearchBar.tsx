@@ -1,17 +1,28 @@
-import { FormEventHandler } from "react";
+import { FormEventHandler, useEffect, useRef } from "react";
 import "./SearchBar.css";
-import { useAppDispatch } from "../../../../hooks/reduxHooks";
-import { setToFilterByTitle } from "../../../../features/catalog/catalogSlice";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
+import {
+  selectTitleFilter,
+  setToFilterByTitle,
+} from "../../../../features/catalog/catalogSlice";
 import debounce from "../../../../utils/debounce";
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const previousSearch = useAppSelector(selectTitleFilter);
 
   const updateState = (input: string) => {
     const query = input.toLowerCase();
 
     dispatch(setToFilterByTitle(query));
   };
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.value = previousSearch;
+    }
+  }, [previousSearch]);
 
   const debouncedInputHandler = debounce(updateState, 300);
 
@@ -29,6 +40,7 @@ const SearchBar = () => {
         className="search-bar"
         onInput={onInput}
         aria-label="Search products"
+        ref={inputRef}
       />
     </div>
   );
