@@ -95,6 +95,7 @@ export const catalogSlice = createSlice({
     },
     selectTitleFilter: (state) => state.filterByTitle,
     selectCategoryFilter: (state) => state.filterByCategory,
+    selectLikedFilter: (state) => state.filterByLike,
   },
 
   extraReducers: (builder) => {
@@ -133,4 +134,5 @@ export const {
   selectProductById,
   selectTitleFilter,
   selectCategoryFilter,
+  selectLikedFilter,
 } = catalogSlice.selectors;
