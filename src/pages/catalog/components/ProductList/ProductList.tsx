@@ -4,7 +4,10 @@ import { ProductData } from "../../../product/ProductData";
 import ProductCard from "../ProductCard/ProductCard";
 import { toast } from "react-toastify";
 import { toggleLiked } from "../../../../features/catalog/catalogSlice";
-import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
+import {
+  addProduct,
+  removeOneProduct,
+} from "../../../../features/shoppingCart/shoppingCartSlice";
 import { useAppDispatch } from "../../../../hooks/reduxHooks";
 
 type ProductListProps = {
@@ -22,9 +25,15 @@ export const ProductList = ({ products }: ProductListProps) => {
         };
 
         const addToCartHandler = () => {
-          toast("Successful added to cart", { type: "success" });
+          toast("Successfuly added to cart", { type: "success" });
 
           dispatch(addProduct(product));
+        };
+
+        const removeFromCartHandler = () => {
+          toast("Successfuly removed from cart", { type: "success" });
+
+          dispatch(removeOneProduct(product));
         };
 
         return (
@@ -33,6 +42,7 @@ export const ProductList = ({ products }: ProductListProps) => {
             product={product}
             addToCartHandler={addToCartHandler}
             toggleLikeHandler={toggleLikeHandler}
+            removeFromCartHandler={removeFromCartHandler}
           />
         );
       })}

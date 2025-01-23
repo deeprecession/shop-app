@@ -94,9 +94,19 @@
 .buyBtn {
   grid-area: buy;
   min-width: 8rem;
-  width: 90%;
+
+  justify-self: center;
 }
 
 .likeBtn {
   grid-area: like;
+}
+
+.star {
+  width: 0.8rem;
+  height: 0.8rem;
+
+  display: inline-block;
+
+  object-fit: contain;
 }
